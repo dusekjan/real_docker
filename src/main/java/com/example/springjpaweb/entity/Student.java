@@ -3,8 +3,7 @@ package com.example.springjpaweb.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-// zkouska merge
+import javax.persistence.OneToOne;
 
 @Entity
 public class Student {
@@ -14,12 +13,21 @@ public class Student {
     private String firstname;
     private String lastname;
 
+    @OneToOne(mappedBy = "student")
+    private Ship ship;
+
     public Student() {
     }
 
     public Student(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+
+    public Student(String firstname, String lastname, Ship ship) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.ship = ship;
     }
 
     public long getId() {
