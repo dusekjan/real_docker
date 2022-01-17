@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--HLAVNÍ STRÁNKA-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Studentský projekt Nosek & Dušek</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <!-- styly-->
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+
+    <!-- ikona -->
+    <link rel="shortcut icon" href="/img/uhk.png" type="image/png" sizes="16x16">
+</head>
+
+<body>
+
+<!-- nadpis -->
+<header>
+    <img src="/img/logo.png" class="nadpis" alt="Přístav Dušek & Nosek">
+</header>
+
+<!-- navigace -->
+<nav class="navigace">
+    <a href='/'>ÚVOD </a>|
+    <a href='/rozcestnik'> ROZCESTNÍK </a>
+</nav>
+
+<!--1.clanek: základní info, ceník a kontakt-->
+<article class="clanek">
+    <h2 class="malynadpis">Základní info</h2>
+    <div class="odstavec">
+        <img src="img/icon.png" class="logo vlevo">
+        <h3 class="dopln">Základní informace</h3>
+        <p class="pismo">
+            Přístav Nosek & Dušek je rozložen na levém břehu řeky Dunaj na 20km. Jsou zde umístěny komunikace, skladové
+            objekty, jeřábová dráha, železniční vlečka či manipulační plochy pro skladování kontejnerů.
+            Přístav plní též funkci ochrannou pro obchodní a osobní lodě. Je hlavně určen pro překlad zboží mezi vodní a
+            silniční dopravou. Může ale též sloužit pro stání plavidel.
+        </p>
+
+        <p class="pismo">
+            Přístav Nosek & Dušek je důležitá křižovatka mezi různými druhy dopravy. Má k dispozici vlastní tarifní
+            železniční bod, včetně rozsáhlé železniční a vlečkové sítě.
+            Je zde velká plocha pro manipulace a složení nákladu. Také je zde jeřáb s nosností 300 tun. V přístavu jsou
+            též budovy se sociálním zařízením, administativní budovy, skladové prostory či mnoho dalších zařízeních.
+            Překládají se zde různé druhy zboží. Například všechny druhy agrárních produktů, stavebniny a ostatní
+            hromadné substráty volně ložené. Dále jsou to kusové zásilky, železo, chemické výrobky, ale také kontejnery,
+            a mnohé další.
+        </p>
+    </div>
+
+    <div class="odstavec">
+        <div>
+            <h2 class="hraci">Ceník</h2>
+            <div class="obal">
+                <div id="soupiska">
+                    <h3 class="doleva">Plavidla s vlastním pohonem</h3>
+                    <ul>
+                        <li>- o nosnosti do 500 tun</li>
+                        <li>- o nosnosti nad 500 tun</li>
+                    </ul>
+                    <br>
+                    <h3 class="doleva">Plavidla bez vlastního pohonu</h3>
+                    <ul>
+                        <li>- o nosnosti do 500 tun</li>
+                        <li>- o nosnosti nad 500 tun</li>
+                    </ul>
+                    <br>
+                    <h3 class="doleva">Remorkéry</h3>
+                    <ul>
+                        <li>- tlačné</li>
+                        <li>- vlečné</li>
+                    </ul>
+                </div>
+
+                <div id="soupiska2">
+                    <h3>Cena</h3>
+                    <ul class="schovej">
+                        <li>600 Kč/1 den</li>
+                        <li>1 200 Kč/1 den</li>
+                    </ul>
+                    <br>
+                    <h3><br></h3>
+                    <ul class="schovej">
+                        <li>850 Kč/1 den</li>
+                        <li>1 450 Kč/1 den</li>
+                    </ul>
+                    <br>
+                    <h3><br></h3>
+                    <ul class="schovej">
+                        <li>250 Kč/1 den</li>
+                        <li>450 Kč/1 den</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="odstavec">
+                <h3>Kontakt</h3>
+                <p class="dopln">Email: projekt@projekt.cz</p>
+                <p class="dopln"> Telefon: +420 999 999 999</p>
+            </div>
+
+        </div>
+    </div>
+</article>
+
+<!--2.clanek: přihlášení-->
+<article class="clanek">
+    <h2 class="malynadpis">Část pro zaměstnance</h2>
+    <p class="pismo dopln">Pro editaci databáze (přidání/odebrání lodě) se musíte přihlásit. Stejné podmínky platí i
+        když se chcete přesunout na harmonogram, kde se nacházejí 3 tabulky. Ty zobrazují přehled všech lodí, které se v
+        přístavu nacházejí, teprve přijedou či již odjeli. Po přihlášení též můžete nalézt i databázi se zaměstnanci a
+        jejich
+        veškerými údaji. Údaje pro přihlášení Vám sdělíme pokud budete na pracovním pohovoru úspěšne přijat.
+    </p>
+    <div class="clanek2">
+        <div class="uprostredR">
+            <h3 class="uprostredText">Přihlášení</h3>
+            <form id="login">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label class="rozestup" for="email">Email</label>
+                        </td>
+                        <td>
+                            <input class="rozestup" type="email" id="email" name="email" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="rozestup" for="password">Heslo</label>
+                        </td>
+                        <td>
+                            <input class="rozestup" type="password" id="password" name="password" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="rozestup" type="submit">Přihlásit se</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</article>
+
+<!-- zápatí -->
+<div class="footer">
+    <p> &copy;2022 | Karel Nosek & Jan Dušek - studentský projekt z předmětu PPRO</p>
+</div>
+
+</body>
+
+</html>
