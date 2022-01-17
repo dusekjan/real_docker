@@ -12,24 +12,96 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
     <!-- styly-->
-    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="../static/css/main.css"/>
 
     <!-- ikona -->
-    <link rel="shortcut icon" href="/img/uhk.png" type="image/png" sizes="16x16">
-
+    <link rel="shortcut icon" href="../static/img/uhk.png" type="image/png" sizes="16x16">
 </head>
 
 <body>
+
 <!-- nadpis -->
 <header>
-    <img src="/img/logo.png" class="nadpis" alt="Přístav Dušek & Nosek">
+    <!--    v tehle sablone jsi ve slozce /templates => dvema teckama ".." se vratis do /static => ze static pak do img/logo.png -->
+    <img src="../static/img/logo.png" class="nadpis" alt="Přístav Dušek & Nosek">
 </header>
 
 <!-- navigace -->
 <nav class="navigace">
-    <a href='/'>ÚVOD </a>|
-    <a href='/rozcestnik'> ROZCESTNÍK </a>
+    <a href='uvod.html'>ÚVOD </a>|
+    <a href='rozcestnik.html'> ROZCESTNÍK </a>
 </nav>
+
+<article class="clanek">
+    <h2 class="malynadpis">Seznam zaměstnanců</h2>
+    <table>
+        <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Pozice</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Upravit údaje</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button type="button">Upravit</button></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button type="button">Upravit</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button type="button">Upravit</button></td>
+        </tr>
+    </table>
+</article>
+
+
+<article class="clanek">
+    <h2 class="malynadpis">Přidat nového zaměstnance</h2>
+    <div class="oddelit">
+        <label>Jméno:</label>
+        <input type="text"><br>
+    </div>
+    <div class="oddelit">
+        <label>Příjmení:</label>
+        <input type="text"><br>
+    </div>
+    <div class="oddelit">
+        <label>Pozice:</label>
+        <select>
+            <option value="1">Vedoucí přístavu</option>
+            <option value="2">Řadový zaměstnanec</option>
+            <option value="3">Majitel přístavu/Admin</option>
+        </select><br>
+    </div>
+    <div class="oddelit">
+        <label>Email:</label>
+        <input type="text"><br>
+    </div>
+    <div class="oddelit">
+        <label>Telefon:</label>
+        <input type="text"><br>
+    </div>
+    <div class="oddelit">
+        <input type="submit" value="Přidat">
+    </div>
+</article>
 
 <!-- zápatí -->
 <div class="footer">

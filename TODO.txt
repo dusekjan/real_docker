@@ -4,8 +4,27 @@ Nepřihlasen:
 
 Prihlasen:
 	Rozcestnik: harmonogram / editace - lodi / zamestnanci
-	Harmonogram: v zasade 2 tabulky OČEKÁVÁ SE / AKTUALNE V PRISTAVU / ODJELY  (moznost prokliku na lod)
+	Harmonogram: v zasade 3 tabulky OČEKÁVÁ SE / AKTUALNE V PRISTAVU / ODJELY  (moznost prokliku na lod)
 	Editace: editovat lode (mozna jenom pri prokliku na ni) a pridavat vlastni lode
 	Evidence zamestnancu: pridelovani prav / vytvareni zamestnancu / odstraneni
 
+------------------------------------
+Karel udělat:
 
+Úvod:
+    stylování
+
+Rozcestník:
+    stylování
+
+Harmonogram:
+    stylování
+    Po kliknutí na tlačítko "Detail" ukázat vyskakovací okno
+
+Editace:
+    stylování
+    Po kliknutí na tlačítko "Upravit" ukázat vyskakovací okno (zde se může loď i odstranit)
+
+Evidence zaměstnanců:
+    stylování
+    Po kliknutí na tlačítko "Upravit" ukázat vyskakovací okno (zde se může zaměstnanec i odstranit)
