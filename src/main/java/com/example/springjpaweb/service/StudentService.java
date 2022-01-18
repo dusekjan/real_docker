@@ -2,9 +2,11 @@ package com.example.springjpaweb.service;
 
 import com.example.springjpaweb.entity.Student;
 import com.example.springjpaweb.repository.StudentRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +25,11 @@ public class StudentService {
 
     public Student save(Student student) {
         return repository.save(student);
+    }
+
+    @Query("SELECT s FROM Student s WHERE s.firstname='Jana'")
+    public List<Student> findForMe() {
+        return repository.findAll();
     }
 
     @PreAuthorize(("hasRole('SUPERADMIN')")) //ma smysl tohle psat na Beanach a ne na nejaky tride - Method security

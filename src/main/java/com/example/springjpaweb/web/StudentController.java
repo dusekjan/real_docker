@@ -1,6 +1,8 @@
 package com.example.springjpaweb.web;
 
+import com.example.springjpaweb.entity.Ship;
 import com.example.springjpaweb.entity.Student;
+import com.example.springjpaweb.service.ShipService;
 import com.example.springjpaweb.service.StudentService;
 import com.example.springjpaweb.web.errors.ErrorResponse;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -14,11 +16,25 @@ import java.util.Optional;
 @RestController
 public class StudentController {
     private final StudentService service;
+    private final ShipService service2;
 
-    public StudentController(StudentService service){
+    public StudentController(StudentService service, ShipService service2){
         this.service = service;
-        service.save(new Student("Jan", "Novák"));
-        service.save(new Student("Jana", "Nováková"));
+        this.service2 = service2;
+
+        Student student1 = service.save(new Student("Jan", "Novák"));
+        Student student2 =  service.save(new Student("Jana", "Nováková"));
+
+        Ship ship1 = service2.save(new Ship("Lod1", "Lodenice", student1));
+        Ship ship2 = service2.save(new Ship("Lod2", "Lodenice2"));
+        Ship ship3 = service2.save(new Ship("Lod3", "Lodenice3"));
+
+        ship3.setStudent(student2);
+
+        service2.save(ship3);
+
+        System.out.println("OUTPUT: " + service.findForMe());
+
     }
 
     @PostMapping("/student")

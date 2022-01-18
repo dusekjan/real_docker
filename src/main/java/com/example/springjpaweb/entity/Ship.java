@@ -1,8 +1,10 @@
 package com.example.springjpaweb.entity;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
+@Table(name="ship")
 public class Ship {
     @Id
     @GeneratedValue
@@ -11,9 +13,11 @@ public class Ship {
     private String company;
 
     @OneToOne
+    @JoinColumn(name = "student_id")
     private Student student;
 
     public Ship() {
+
     }
 
     public Ship(String name, String company) {
@@ -49,5 +53,13 @@ public class Ship {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }

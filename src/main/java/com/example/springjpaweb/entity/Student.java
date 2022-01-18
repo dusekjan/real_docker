@@ -1,11 +1,9 @@
 package com.example.springjpaweb.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "student")
 public class Student {
 
     @Id @GeneratedValue
@@ -22,12 +20,6 @@ public class Student {
     public Student(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
-    }
-
-    public Student(String firstname, String lastname, Ship ship) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.ship = ship;
     }
 
     public long getId() {
@@ -52,6 +44,10 @@ public class Student {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public Ship getShip() {
+        return ship;
     }
 
     @Override
