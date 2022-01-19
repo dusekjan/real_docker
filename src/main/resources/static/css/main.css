@@ -1,3 +1,5 @@
+/*TABULKY*/
+
 table,
 th,
 td {
@@ -11,6 +13,7 @@ table {
     display: block;
     overflow-x: auto;
     border-spacing: 0;
+    border-radius: 5px;
 }
 
 tbody {
@@ -41,13 +44,170 @@ tr:last-child td {
     border-bottom-width: 0;
 }
 
-.uprostredR {
+.uprostredT {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    width: 30%
+    width: 40%
 }
 
 .oddelit{
     padding: 5px;
+}
+
+/*BODY*/
+
+body {
+    background-image: url("../img/pozadi.jpg");
+    background-attachment:fixed;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    width: 1024px
+}
+
+/*PRO VŠECHNY ČÁSTI*/
+
+.obecne{
+    margin: 5px auto;
+    font-family: Georgia, serif;
+    border-radius: 5px;
+    width: 98%;
+}
+
+/*ČLÁNKY*/
+
+.clanek {
+    background-color: white;
+    height: auto;
+    border: 2px solid black;
+}
+
+.odstavec {
+    margin: 10px;
+}
+
+p{
+    letter-spacing: 0.4px;
+}
+
+.odsadit{
+    margin-left:10px
+}
+
+.ceny{
+    width: 38%;
+}
+
+.ceny2{
+    width: 20%;
+}
+
+.obal {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.uprostredN {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*LOGO*/
+
+.logo{
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+}
+
+/*NAVIGACE*/
+
+.navigace {
+    font-size: 20px;
+    text-align: left;
+    background-color: white;
+    border: 2px solid black;
+    height: 25px;
+    padding-top: 5px;
+    color: #343434;
+    font-family: 'Orienta', sans-serif;
+}
+
+.nav1{
+    margin: 0 5px 0 20px;
+}
+
+.nav2{
+    margin: 0 5px 0 10px;
+}
+
+/*ZÁPATÍ*/
+
+.footer{
+    border: 2px solid black;
+    background-color: grey;
+    text-align: center;
+}
+
+/*ODKAZY*/
+
+a:hover,
+a:active,
+a:link,
+a:visited {
+    text-decoration: none;
+    color: black;
+
+}
+
+a:active,
+a:hover{
+    color: rgb(29, 19, 172);
+    text-decoration: underline;
+
+}
+
+/*NADPISY*/
+
+.nadpis {
+    margin: 10px;
+}
+
+h2{
+    margin: 20px 0 10px 20px;
+    color: #343434;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 15px;
+    font-family: 'Orienta', sans-serif;
+}
+
+h3{
+    margin: 20px 0 10px 20px;
+    color: #343434;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 15px;
+    font-family: 'Orienta', sans-serif;
+}
+
+.velke{
+    font-size: 20px;
+}
+
+/*OBRÁZKY*/
+
+.obrazek{
+    float:left;
+    margin: 3px 20px 10px 10px;
+}
+
+.obrazek2{
+    margin: 50px 20px 0px 20px;
+    width: 100%;
+    height: auto;
 }

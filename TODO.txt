@@ -12,7 +12,7 @@ Prihlasen:
 Karel udělat:
 
 Úvod:
-    stylování
+   HOTOV
 
 Rozcestník:
     stylování

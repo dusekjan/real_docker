@@ -21,129 +21,126 @@
 <body>
 
 <!-- nadpis -->
-<header>
-    <!--    v tehle sablone jsi ve slozce /templates => dvema teckama ".." se vratis do /static => ze static pak do img/logo.png -->
-    <img src="../static/img/logo.png" class="nadpis" alt="Přístav Dušek & Nosek">
+<header class="obecne">
+    <img src="../static/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
 <!-- navigace -->
-<nav class="navigace">
-    <a href='uvod.html'>ÚVOD </a>|
-    <a href='rozcestnik.html'> ROZCESTNÍK </a>
+<nav class="navigace obecne">
+    <a class="nav1" href='uvod.html'>ÚVOD </a>
+    <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
 </nav>
 
 <!--1.clanek: základní info, ceník a kontakt-->
-<article class="clanek">
-    <h2 class="malynadpis">Základní info</h2>
+<article class="clanek obecne">
+    <h2>Základní info</h2>
     <div class="odstavec">
-        <img src="../static/img/obr5.jpg" sizes="100x100" class="logo vlevo">
-        <h3 class="dopln">Základní informace</h3>
-        <p class="pismo">
-            Přístav Nosek & Dušek je rozložen na levém břehu řeky Dunaj na 20km. Jsou zde umístěny komunikace, skladové
-            objekty, jeřábová dráha, železniční vlečka či manipulační plochy pro skladování kontejnerů.
-            Přístav plní též funkci ochrannou pro obchodní a osobní lodě. Je hlavně určen pro překlad zboží mezi vodní a
-            silniční dopravou. Může ale též sloužit pro stání plavidel.
+        <img src="../static/img/obr5.jpg" sizes="100x100" class="obrazek" alt="Obrázek přístavu">
+        <p>
+            Přístav Nosek & Dušek je rozložen na levém břehu řeky Dunaj na 20km. Je určen hlavně pro překlad zboží mezi
+            vodní a silniční dopravou. Může ale též sloužit pro stání plavidel. Jedná se o velmi důležitou křižovatku
+            mezi různými druhy dopravy. Samozřejmostí je pak existence komunikací a skladovacích prostor. Přístav též
+            plní funkci ochrannou pro obchodní a osobní lodě.
         </p>
-
-        <p class="pismo">
-            Přístav Nosek & Dušek je důležitá křižovatka mezi různými druhy dopravy. Má k dispozici vlastní tarifní
-            železniční bod, včetně rozsáhlé železniční a vlečkové sítě.
+        <p>
+            V tomto přístavu je umístěno hned několik moderník strojů a jiných zařízení. Mezi ně patří například
+            jeřábová dráha a železniční vlečka.
+        </p>
+        <p>
+            Přístav má k dispozici vlastní tarifní železniční bod, včetně rozsáhlé železniční a vlečkové
+            sítě.
             Je zde velká plocha pro manipulace a složení nákladu. Také je zde jeřáb s nosností 300 tun. V přístavu jsou
             též budovy se sociálním zařízením, administativní budovy, skladové prostory či mnoho dalších zařízeních.
-            Překládají se zde různé druhy zboží. Například všechny druhy agrárních produktů, stavebniny a ostatní
+        </p>
+        <p class="odsadit">
+            Dají se zde též překládat různé druhy zboží, jako jsou agrární produkty, stavebniny a ostatní
             hromadné substráty volně ložené. Dále jsou to kusové zásilky, železo, chemické výrobky, ale také kontejnery,
             a mnohé další.
         </p>
     </div>
+</article>
 
-    <div class="odstavec">
-        <div>
-            <h2 class="hraci">Ceník</h2>
-            <div class="obal">
-                <div id="soupiska">
-                    <h3 class="doleva">Plavidla s vlastním pohonem</h3>
-                    <ul>
-                        <li>- o nosnosti do 500 tun</li>
-                        <li>- o nosnosti nad 500 tun</li>
-                    </ul>
-                    <br>
-                    <h3 class="doleva">Plavidla bez vlastního pohonu</h3>
-                    <ul>
-                        <li>- o nosnosti do 500 tun</li>
-                        <li>- o nosnosti nad 500 tun</li>
-                    </ul>
-                    <br>
-                    <h3 class="doleva">Remorkéry</h3>
-                    <ul>
-                        <li>- tlačné</li>
-                        <li>- vlečné</li>
-                    </ul>
-                </div>
-
-                <div id="soupiska2">
-                    <h3>Cena</h3>
-                    <ul class="schovej">
-                        <li>600 Kč/1 den</li>
-                        <li>1 200 Kč/1 den</li>
-                    </ul>
-                    <br>
-                    <h3><br></h3>
-                    <ul class="schovej">
-                        <li>850 Kč/1 den</li>
-                        <li>1 450 Kč/1 den</li>
-                    </ul>
-                    <br>
-                    <h3><br></h3>
-                    <ul class="schovej">
-                        <li>250 Kč/1 den</li>
-                        <li>450 Kč/1 den</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="odstavec">
-                <h3>Kontakt</h3>
-                <p class="dopln">Email: projekt@projekt.cz</p>
-                <p class="dopln"> Telefon: +420 999 999 999</p>
-            </div>
-
+<article class="clanek obecne">
+    <h2 class="uprostredN">Ceník</h2>
+    <div class="odstavec obal ">
+        <div class="ceny">
+            <h3>Plavidla s vlastním pohonem</h3>
+            <ul>
+                <li> o nosnosti do 500 tun</li>
+                <li> o nosnosti nad 500 tun</li>
+            </ul>
+            <br>
+            <h3>Plavidla bez vlastního pohonu</h3>
+            <ul>
+                <li> o nosnosti do 500 tun</li>
+                <li> o nosnosti nad 500 tun</li>
+            </ul>
+            <br>
+            <h3>Remorkéry</h3>
+            <ul>
+                <li> tlačné</li>
+                <li> vlečné</li>
+            </ul>
+        </div>
+        <div class="ceny2">
+            <h3>Cena</h3>
+            <ul>
+                <li>600 Kč/1 den</li>
+                <li>1 200 Kč/1 den</li>
+            </ul>
+            <br>
+            <h3><br></h3>
+            <ul>
+                <li>850 Kč/1 den</li>
+                <li>1 450 Kč/1 den</li>
+            </ul>
+            <br>
+            <h3><br></h3>
+            <ul>
+                <li>250 Kč/1 den</li>
+                <li>450 Kč/1 den</li>
+            </ul>
+        </div>
+        <div class="ceny">
+            <img src="../static/img/obr2.png" sizes="100x100" class="obrazek2" alt="Obrázek stroje">
         </div>
     </div>
+
 </article>
 
 <!--2.clanek: přihlášení-->
-<article class="clanek">
-    <h2 class="malynadpis">Část pro zaměstnance</h2>
-    <p class="pismo dopln">Pro editaci databáze (přidání/odebrání lodě) se musíte přihlásit. Stejné podmínky platí i
-        když se chcete přesunout na harmonogram, kde se nacházejí 3 tabulky. Ty zobrazují přehled všech lodí, které se v
-        přístavu nacházejí, teprve přijedou či již odjeli. Po přihlášení též můžete nalézt i databázi se zaměstnanci a
-        jejich
-        veškerými údaji. Údaje pro přihlášení Vám sdělíme pokud budete na pracovním pohovoru úspěšne přijat.
-    </p>
-    <div class="clanek2">
-        <div class="uprostredR">
-            <h3 class="uprostredText">Přihlášení</h3>
+<article class="clanek obecne">
+    <h2>Část pro zaměstnance</h2>
+    <div class="odstavec">
+        <p class="odsadit">Pro editaci databáze (přidání/odebrání lodě) se musíte přihlásit. Stejné podmínky platí i
+            pro přesunutí na harmonogram, kde se nacházejí 3 tabulky. Ty zobrazují přehled všech lodí, které se v
+            přístavu nacházejí, teprve přijedou či již odjeli. Po přihlášení též můžete nalézt i databázi se zaměstnanci a
+            jejich
+            veškerými údaji. Údaje pro přihlášení Vám sdělíme pokud budete na pracovním pohovoru úspěšne přijat.
+        </p>
+        <div class="uprostredT">
+            <h3 class="velke">Přihlášení</h3>
             <form id="login">
                 <table>
                     <tr>
                         <td>
-                            <label class="rozestup" for="email">Email</label>
+                            <label for="email">Email</label>
                         </td>
                         <td>
-                            <input class="rozestup" type="email" id="email" name="email" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="rozestup" for="password">Heslo</label>
-                        </td>
-                        <td>
-                            <input class="rozestup" type="password" id="password" name="password" required>
+                            <input type="email" id="email" name="email" required>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button class="rozestup" type="submit">Přihlásit se</button>
+                            <label for="password">Heslo</label>
+                        </td>
+                        <td>
+                            <input type="password" id="password" name="password" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit">Přihlásit se</button>
                         </td>
                     </tr>
                 </table>
@@ -153,8 +150,8 @@
 </article>
 
 <!-- zápatí -->
-<div class="footer">
-    <p> &copy;2022 | Karel Nosek & Jan Dušek - studentský projekt z předmětu PPRO</p>
+<div class="footer obecne">
+    <p> Copyright &copy; 2022 | Karel Nosek & Jan Dušek - studentský projekt z předmětu PPRO</p>
 </div>
 
 </body>
