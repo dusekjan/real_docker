@@ -15,16 +15,13 @@ Karel udělat:
    HOTOV
 
 Rozcestník:
-    stylování
+    HOTOV
 
 Harmonogram:
-    stylování
     Po kliknutí na tlačítko "Detail" ukázat vyskakovací okno
 
 Editace:
-    stylování
     Po kliknutí na tlačítko "Upravit" ukázat vyskakovací okno (zde se může loď i odstranit)
 
 Evidence zaměstnanců:
-    stylování
     Po kliknutí na tlačítko "Upravit" ukázat vyskakovací okno (zde se může zaměstnanec i odstranit)
