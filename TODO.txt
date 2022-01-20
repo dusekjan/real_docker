@@ -11,17 +11,4 @@ Prihlasen:
 ------------------------------------
 Karel udělat:
 
-Úvod:
-   HOTOV
-
-Rozcestník:
-    HOTOV
-
-Harmonogram:
-    Po kliknutí na tlačítko "Detail" ukázat vyskakovací okno
-
-Editace:
-    Po kliknutí na tlačítko "Upravit" ukázat vyskakovací okno (zde se může loď i odstranit)
-
-Evidence zaměstnanců:
-    Po kliknutí na tlačítko "Upravit" ukázat vyskakovací okno (zde se může zaměstnanec i odstranit)
+- requesty

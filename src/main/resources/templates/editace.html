@@ -11,7 +11,7 @@
     <title>Studentský projekt Nosek & Dušek</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
-    <!-- styly-->
+    <!-- styly -->
     <link type="text/css" rel="stylesheet" href="../static/css/main.css"/>
 
     <!-- ikona -->
@@ -25,16 +25,69 @@
     <img src="../static/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
+<!-- Vyskakovací okno -->
+<div class="popup" id="myForm">
+    <form class="container">
+        <h2>Detaily lodě</h2>
+        <div class="oddelit">
+            <label for="nazevL">Název lodě</label>
+            <input type="text" id="nazevL"><br>
+        </div>
+        <div class="oddelit">
+            <label for="nazevS">Název společnosti</label>
+            <input type="text" id="nazevS"><br>
+        </div>
+        <div class="oddelit">
+            <label for="naklad">Druh nákladu</label>
+            <input type="text" id="naklad"><br>
+        </div>
+        <div class="oddelit">
+            <label for="hmotnost">Hmotnost nákladu (kg)</label>
+            <input type="number" id="hmotnost"><br>
+        </div>
+        <div class="oddelit">
+            <label for="pristav">Zvolený přístav:</label>
+            <select id="pristav">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select><br>
+        </div>
+        <div class="oddelit">
+            <label for="casP">Čas příjezdu</label>
+            <input type="time" id="casP"><br>
+        </div>
+        <div class="oddelit">
+            <label for="casO">Čas odjezdu</label>
+            <input type="time" id="casO"><br>
+        </div>
+        <div class="oddelit">
+            <label for="stav">Stav lodi</label>
+            <select id="stav">
+                <option value="1">Očekává se</option>
+                <option value="2">Aktuálně v přístavu</option>
+                <option value="3">Již odjela</option>
+            </select><br>
+        </div>
+
+        <button type="submit" class="btn">Uložit</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Zavřít</button>
+    </form>
+</div>
+
 <!-- navigace -->
 <nav class="navigace obecne">
     <a class="nav1" href='uvod.html'>ÚVOD </a>
     <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
 </nav>
 
+<!-- článek: editace lodí -->
 <article class="clanek obecne">
     <h2 class="uprostredN">Editace lodí</h2>
     <div class="odstavec2">
         <h3 class="velke">Seznam všech lodí</h3>
+
+        <!-- tabulka: editace lodí -->
         <table class="table2">
             <tr>
                 <th>Název lodě</th>
@@ -57,58 +110,49 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <button type="button">Upravit</button>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button">Upravit</button>
+                    <button  onclick="openForm()" type="button">Upravit</button>
                 </td>
             </tr>
         </table >
     </div>
 
+    <!-- přidání nové lodě -->
     <div class="odstavec2">
         <h3 class="velke">Přidat novou loď:</h3>
+
+        <!--obrázek-->
         <div class="obrVpravo">
             <img src="../static/img/obr3.jpg" class="obrazek4" alt="Obrázek zaměstnanců">
         </div>
+
         <div class="novyVlevo">
             <div class="oddelit">
                 <label>Název lodě:</label>
-                <input class="vpravo" type="text"><br>
+                <input class="vpravo" type="text" placeholder="Název lodě"><br>
             </div>
             <div class="oddelit">
                 <label>Název společnosti:</label>
-                <input class="vpravo" type="text"><br>
+                <input class="vpravo" type="text" placeholder="Název společnosti"><br>
             </div>
             <div class="oddelit">
                 <label>Druh nákladu:</label>
-                <input class="vpravo" type="text"><br>
+                <input class="vpravo" type="text" placeholder="Druh nákladu"><br>
             </div>
             <div class="oddelit">
                 <label>Hmotnost nákladu (kg):</label>
-                <input class="vpravo" type="number"><br>
+                <input class="vpravo" type="number" placeholder="Hmotnost"><br>
             </div>
             <div class="oddelit">
                 <label>Zvolený přístav:</label>
                 <select class="vpravo">
-                    <option value="1">Nákup</option>
-                    <option value="2">Prodej</option>
-                    <option value="3">Výměna</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select><br>
             </div>
             <div class="oddelit">
                 <label>Čas příjezdu:</label>
-                <input class="vpravo" type="time"><br>
+                <input class="vpravo" type="time" ><br>
             </div>
             <div class="oddelit">
                 <label>Čas odjezdu:</label>
@@ -133,6 +177,9 @@
 <div class="footer obecne">
     <p> Copyright &copy; 2022 | Karel Nosek & Jan Dušek - studentský projekt z předmětu PPRO</p>
 </div>
+
+<!-- skript pro vyskakovací okno -->
+<script src="../static/js/popupWindow.js"></script>
 
 </body>
 

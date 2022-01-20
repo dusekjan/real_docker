@@ -1,5 +1,4 @@
 /* STYLOVÁNÍ PRO TABULKY */
-
 table,
 th,
 td {
@@ -259,4 +258,48 @@ h3 {
     width: 95%;
     height: auto;
     margin-left: 20px;
+}
+
+/* STYLOVÁNÍ PRO VYSKAKOVACÍ OKNA */
+
+.popup {
+    display: none;
+    position: absolute;
+    margin-left: 350px;
+    border: 3px solid black;
+    z-index: 9;
+    border-radius: 5px;
+}
+
+.container {
+    max-width: 400px;
+    padding: 10px;
+    background-color: white;
+}
+
+.container input[type=text], .container input[type=password] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 5px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.container .btn {
+    background-color: #135aac;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
+.container .cancel {
+    background-color: #d90c0c;
+}
+
+.container .btn:hover, .open-button:hover {
+    opacity: 1;
 }
