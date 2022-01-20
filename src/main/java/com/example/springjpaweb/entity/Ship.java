@@ -1,7 +1,10 @@
 package com.example.springjpaweb.entity;
 
+import com.example.springjpaweb.enums.CargoType;
+
 import javax.persistence.*;
-import java.util.Optional;
+import javax.transaction.Transactional;
+import java.util.List;
 
 @Entity
 @Table(name="ship")
@@ -12,9 +15,15 @@ public class Ship {
     private String name;
     private String company;
 
-    @OneToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
+    @Enumerated(EnumType.STRING)
+    private CargoType cargoType; // podrobneji v entite Cargo
+
+    //lod neni vlastnikem ani jednoho vztahu takze nepotrebuje mit gettery a settery
+    @OneToMany(mappedBy = "ship")
+    private List<Cargo> cargo;
+
+    @OneToOne(mappedBy = "ship")
+    private Schedule schedule;
 
     public Ship() {
 
@@ -25,18 +34,18 @@ public class Ship {
         this.company = company;
     }
 
-    public Ship(String name, String company, Student student) {
+    public Ship(String name, String company, CargoType cargoType) {
         this.name = name;
         this.company = company;
-        this.student = student;
+        this.cargoType = cargoType;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public Ship(String name, String company, CargoType cargoType, List<Cargo> cargo, Schedule schedule) {
+        this.name = name;
+        this.company = company;
+        this.cargoType = cargoType;
+        this.cargo = cargo;
+        this.schedule = schedule;
     }
 
     public String getName() {
@@ -55,11 +64,27 @@ public class Ship {
         this.company = company;
     }
 
-    public Student getStudent() {
-        return student;
+    public CargoType getCargoType() {
+        return cargoType;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setCargoType(CargoType cargoType) {
+        this.cargoType = cargoType;
+    }
+
+    public List<Cargo> getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(List<Cargo> cargo) {
+        this.cargo = cargo;
+    }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 }

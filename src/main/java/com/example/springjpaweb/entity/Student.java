@@ -11,9 +11,6 @@ public class Student {
     private String firstname;
     private String lastname;
 
-    @OneToOne(mappedBy = "student")
-    private Ship ship;
-
     public Student() {
     }
 
@@ -44,10 +41,6 @@ public class Student {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public Ship getShip() {
-        return ship;
     }
 
     @Override
