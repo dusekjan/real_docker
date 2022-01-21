@@ -11,7 +11,7 @@
     <title>Studentský projekt Nosek & Dušek</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
-    <!-- styly-->
+    <!-- styly -->
     <link type="text/css" rel="stylesheet" href="../static/css/main.css"/>
 
     <!-- ikona -->
@@ -27,14 +27,73 @@
 
 <!-- navigace -->
 <nav class="navigace obecne">
-    <a class="nav1" href='uvod.html'>ÚVOD </a>
-    <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+    <nav class="vlevoNav">
+        <a class="nav1" href='uvod.html'>ÚVOD </a>
+        <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+    </nav>
+    <nav class="vpravoNav">
+        <button  class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
+        <button  class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
+    </nav>
 </nav>
 
+<!-- vyskakovací okno-->
+<div class="popup" id="myForm2">
+    <form class="container">
+        <h2>Přihlášení uživatele</h2>
+        <div class="oddelit2">
+            <label for="emailPrihlaseni">Email</label>
+            <input type="text" id="emailPrihlaseni" name="emailPrihlaseni" placeholder="Váš email..." required><br>
+        </div>
+        <div class="oddelit2">
+            <label for="psw">Heslo</label>
+            <input type="password" id="psw" name="psw" placeholder="Váše heslo..." required><br>
+        </div>
+        <button type="submit" class="myButton3 uprostred">Přihlásit se</button><br>
+        <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
+    </form>
+</div>
+
+<!-- Vyskakovací okno -->
+<div class="popup" id="myForm">
+    <form class="container">
+        <h2>Detaily zaměstnance</h2>
+        <div class="oddelit">
+            <label for="jmeno">Jméno</label>
+            <input type="text" id="jmeno"><br>
+        </div>
+        <div class="oddelit">
+            <label for="prijmeni">Příjmení</label>
+            <input type="text" id="prijmeni"><br>
+        </div>
+        <div class="oddelit">
+            <label for="naklad">Pozice</label>
+            <select id="naklad">
+                <option value="1">Vedoucí přístavu</option>
+                <option value="2">Řadový zaměstnanec</option>
+                <option value="3">Majitel přístavu/Admin</option>
+            </select><br>
+        </div>
+        <div class="oddelit">
+            <label for="email">Email</label>
+            <input id="email" type="text"><br>
+        </div>
+        <div class="oddelit">
+            <label for="telefon">Telefon</label>
+            <input type="text" id="telefon"><br>
+        </div>
+        <button type="submit" class="myButton3 uprostred">Uložit</button>
+        <button type="button" class="myButton2 uprostred" onclick="closeForm()">Zavřít</button>
+    </form>
+</div>
+
+<!-- článek: evidence zaměstnanců -->
 <article class="clanek obecne">
     <h2 class="uprostredN">Evidence zaměstnanců</h2>
     <div class="odstavec2">
         <h3 class="velke">Seznam zaměstnanců</h3>
+
+        <!-- tabulka: evidence zaměstnanců -->
         <table class="table2">
             <tr>
                 <th>Jméno</th>
@@ -51,46 +110,29 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <button type="button">Upravit</button>
-                </td>
-
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button">Upravit</button>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button">Upravit</button>
+                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Upravit</button>
                 </td>
             </tr>
         </table>
     </div>
 
+    <!-- přidání nového zaměstnance -->
     <div class="odstavec2 odsadit2">
         <h3 class="velke"> Přidat nového zaměstnance:</h3>
+
+        <!--obrázek-->
         <div class="obrVpravo">
             <img src="../static/img/obr1.jpg" class="obrazek4" alt="Obrázek zaměstnanců">
         </div>
+
         <div class="novyVlevo">
             <div class="oddelit">
                 <label>Jméno:</label>
-                <input class="vpravo" type="text"><br>
+                <input class="vpravo" type="text" placeholder="Jméno"><br>
             </div>
             <div class="oddelit">
                 <label>Příjmení:</label>
-                <input class="vpravo" type="text"><br>
+                <input class="vpravo" type="text" placeholder="Příjmení"><br>
             </div>
             <div class="oddelit">
                 <label>Pozice:</label>
@@ -102,14 +144,14 @@
             </div>
             <div class="oddelit">
                 <label>Email:</label>
-                <input class="vpravo" type="text"><br>
+                <input class="vpravo" type="text" placeholder="Email"><br>
             </div>
             <div class="oddelit">
                 <label>Telefon:</label>
-                <input class="vpravo" type="text"><br>
+                <input class="vpravo" type="text" placeholder="Mobilní číslo"><br>
             </div>
             <div class="oddelit">
-                <input type="submit" value="Přidat">
+                <input class="myButton1 uprostred" type="submit" value="Přidat">
             </div>
         </div>
     </div>
@@ -119,6 +161,9 @@
 <div class="footer obecne">
     <p> Copyright &copy; 2022 | Karel Nosek & Jan Dušek - studentský projekt z předmětu PPRO</p>
 </div>
+
+<!-- skript pro vyskakovací okno -->
+<script src="../static/js/popupWindow.js"></script>
 
 </body>
 

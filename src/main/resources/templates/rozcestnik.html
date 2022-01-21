@@ -11,7 +11,7 @@
     <title>Studentský projekt Nosek & Dušek</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
-    <!-- styly-->
+    <!-- styly -->
     <link type="text/css" rel="stylesheet" href="../static/css/main.css"/>
 
     <!-- ikona -->
@@ -25,24 +25,57 @@
     <img src="../static/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
+<!-- vyskakovací okno-->
+<div class="popup" id="myForm2">
+    <form class="container">
+        <h2>Přihlášení uživatele</h2>
+        <div class="oddelit2">
+            <label for="emailPrihlaseni">Email</label>
+            <input type="text" id="emailPrihlaseni" name="emailPrihlaseni" placeholder="Váš email..." required><br>
+        </div>
+        <div class="oddelit2">
+            <label for="psw">Heslo</label>
+            <input type="password" id="psw" name="psw" placeholder="Váše heslo..." required><br>
+        </div>
+        <button type="submit" class="myButton3 uprostred">Přihlásit se</button><br>
+        <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
+    </form>
+</div>
+
 <!-- navigace -->
 <nav class="navigace obecne">
-    <a class="nav1" href='uvod.html'>ÚVOD </a>
-    <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+    <nav class="vlevoNav">
+        <a class="nav1" href='uvod.html'>ÚVOD </a>
+        <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+    </nav>
+    <nav class="vpravoNav">
+        <button  class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
+        <button  class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
+    </nav>
 </nav>
 
+<!-- článek: rozcestí -->
 <article class="clanek obecne">
     <h2>Kam dál?</h2>
     <div class="odstavec">
-    <a class="o1" href='harmonogram.html'>
-        <img class="obrazek3" alt="Harmonogram" src="../static/img/harmonogram.png">
-    </a>
-    <a class="o1" href='evidenceZamestnancu.html'>
-        <img class="obrazek3" alt="Evidence zaměstnanců" src="../static/img/evidence.png">
-    </a>
-    <a class="o1" href='editace.html'>
-        <img class="obrazek3" alt="Editace lodí" src="../static/img/editace.png">
-    </a>
+        <a class="o1" href='harmonogram.html'>
+
+            <!--obrázek-->
+            <img class="obrazek3" alt="Harmonogram" src="../static/img/harmonogram.png">
+
+        </a>
+        <a class="o1" href='evidenceZamestnancu.html'>
+
+            <!--obrázek-->
+            <img class="obrazek3" alt="Evidence zaměstnanců" src="../static/img/evidence.png">
+
+        </a>
+        <a class="o1" href='editace.html'>
+
+            <!--obrázek-->
+            <img class="obrazek3" alt="Editace lodí" src="../static/img/editace.png">
+
+        </a>
     </div>
 </article>
 
@@ -50,6 +83,9 @@
 <div class="footer obecne">
     <p> Copyright &copy; 2022 | Karel Nosek & Jan Dušek - studentský projekt z předmětu PPRO</p>
 </div>
+
+<!-- skript pro vyskakovací okno -->
+<script src="../static/js/popupWindow.js"></script>
 
 </body>
 

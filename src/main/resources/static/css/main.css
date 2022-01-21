@@ -1,5 +1,4 @@
 /* STYLOVÁNÍ PRO TABULKY */
-
 table,
 th,
 td {
@@ -47,15 +46,14 @@ tr:last-child td {
     border-bottom-width: 0;
 }
 
-.uprostredT {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%
-}
-
 .oddelit {
     padding: 8px;
+}
+
+.oddelit2 {
+    margin-right: 10px;
+    margin-bottom: 10px;
+
 }
 
 /* OBECNÉ STYLOVÁNÍ */
@@ -153,13 +151,21 @@ p {
 
 .navigace {
     font-size: 20px;
-    text-align: left;
     background-color: white;
     border: 2px solid black;
     height: 25px;
     padding-top: 5px;
+    padding-bottom: 5px;
     color: #343434;
     font-family: 'Orienta', sans-serif;
+}
+
+.vlevoNav {
+    float: left;
+}
+
+.vpravoNav {
+    float: right;
 }
 
 .nav1 {
@@ -209,7 +215,7 @@ a:hover {
 
 .footer {
     border: 2px solid black;
-    background-color: grey;
+    background-color: #9A9DAF;
     text-align: center;
 }
 
@@ -260,3 +266,112 @@ h3 {
     height: auto;
     margin-left: 20px;
 }
+
+/* STYLOVÁNÍ PRO VYSKAKOVACÍ OKNA */
+
+.popup {
+    display: none;
+    position: fixed;
+    border: 3px solid black;
+    border-radius: 5px;
+    left: 50%;
+    top: 50%;
+    z-index: 9;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    max-width: 400px;
+    padding: 10px;
+    background-color: white;
+}
+
+.container input[type=text], .container input[type=password] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 5px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+/* STYLOVÁNÍ PRO TLAČÍTKA */
+
+/* detail a upravení lodě/zaměstnance */
+.myButton1 {
+    background:linear-gradient(to bottom, #ffffff 5%, #e4e4f7 100%);
+    background-color:#ffffff;
+    border-radius:6px;
+    border:1px solid #a699a6;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-family:Arial, serif;
+    font-size:15px;
+    font-weight:bold;
+    padding:2px 1px;
+    text-decoration:none;
+
+}
+.myButton1:hover {
+    background:linear-gradient(to bottom, #e4e4f7 5%, #ffffff 100%);
+    background-color:#e4e4f7;
+}
+
+.myButton1:active, .myButton2:active, .myButton3:active {
+    position:relative;
+    top:1px;
+}
+
+/* odhlášení uživatele(v navigaci) */
+.myButton2 {
+    background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    background-color:#d0451b;
+    border-radius:5px;
+    border:1px solid #942911;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial, serif;
+    font-size:13px;
+    font-weight:bold;
+    padding:3px 24px;
+    text-decoration:none;
+}
+.myButton2:hover {
+    background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color:#bc3315;
+}
+
+/* přihlášení uživatele(v navigaci) */
+.myButton3 {
+    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color:#7892c2;
+    border-radius:5px;
+    border:1px solid #4e6096;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial, serif;
+    font-size:13px;
+    font-weight:bold;
+    padding:3px 24px;
+    text-decoration:none;
+}
+.myButton3:hover {
+    background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+    background-color:#476e9e;
+}
+
+.uprostred{
+    margin: 0 25% 5px 25%;
+    width:50%
+}
+
+
+
+
+
