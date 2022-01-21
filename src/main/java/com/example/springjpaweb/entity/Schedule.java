@@ -66,5 +66,12 @@ public class Schedule {
         this.ship = ship;
     }
 
-
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "id=" + id +
+                ", state=" + state +
+                ", ship=" + ship +
+                '}';
+    }
 }

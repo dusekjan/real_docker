@@ -12,17 +12,17 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
     <!-- styly -->
-    <link type="text/css" rel="stylesheet" href="../static/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
 
     <!-- ikona -->
-    <link rel="shortcut icon" href="../static/img/uhk.png" type="image/png" sizes="16x16">
+    <link rel="shortcut icon" href="/img/uhk.png" type="image/png" sizes="16x16">
 </head>
 
 <body>
 
 <!-- nadpis -->
 <header class="obecne">
-    <img src="../static/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
+    <img src="/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
 <!-- vyskakovací okno-->
@@ -94,8 +94,8 @@
 <!-- navigace -->
 <nav class="navigace obecne">
     <nav class="vlevoNav">
-        <a class="nav1" href='uvod.html'>ÚVOD </a>
-        <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+        <a class="nav1" href='/uvod'>ÚVOD </a>
+        <a class="nav2" href='/rozcestnik'> ROZCESTNÍK </a>
     </nav>
     <nav class="vpravoNav">
         <button  class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
@@ -112,25 +112,24 @@
         <h3 class="velke">Očekává se</h3>
         <table class="table2">
             <tr>
+                <th>ID lodě</th>
                 <th>Název lodě</th>
                 <th>Název společnosti</th>
                 <th>Druh nákladu</th>
-                <th>Hmotnost nákladu (kg)</th>
-                <th>Zvolený přístav</th>
                 <th>Čas příjezdu</th>
                 <th>Čas odjezdu</th>
                 <th>Stav lodi</th>
                 <th>Zobrazit detail</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr th:each="schedule: ${harmData}"
+                th:if="${schedule.state == T(com.example.springjpaweb.enums.StateOfShip).ARRIVING}">
+                <td th:text="${schedule.ship.id}"></td>
+                <td th:text="${schedule.ship.name}"></td>
+                <td th:text="${schedule.ship.company}"></td>
+                <td th:text="${schedule.ship.cargoType}"></td>
+                <td th:text="${schedule.arrivalTime}"></td>
+                <td th:text="${schedule.departureTime}"></td>
+                <td>Očekává se</td>
                 <td>
                     <button class="myButton1 uprostred" onclick="openForm()" type="button">Detail</button>
                 </td>
@@ -143,23 +142,24 @@
         <h3 class="velke">Aktuálně v přístavu</h3>
         <table class="table2">
             <tr>
+                <th>ID lodě</th>
                 <th>Název lodě</th>
                 <th>Název společnosti</th>
                 <th>Druh nákladu</th>
-                <th>Hmotnost nákladu (kg)</th>
-                <th>Zvolený přístav</th>
                 <th>Čas příjezdu</th>
                 <th>Čas odjezdu</th>
+                <th>Stav lodi</th>
                 <th>Zobrazit detail</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr th:each="schedule: ${harmData}"
+                th:if="${schedule.state == T(com.example.springjpaweb.enums.StateOfShip).HARBER}">
+                <td th:text="${schedule.ship.id}"></td>
+                <td th:text="${schedule.ship.name}"></td>
+                <td th:text="${schedule.ship.company}"></td>
+                <td th:text="${schedule.ship.cargoType}"></td>
+                <td th:text="${schedule.arrivalTime}"></td>
+                <td th:text="${schedule.departureTime}"></td>
+                <td>V přístavu</td>
                 <td>
                     <button class="myButton1 uprostred" onclick="openForm()" type="button">Detail</button>
                 </td>
@@ -172,23 +172,24 @@
         <h3 class="velke">Již odpluly</h3>
         <table class="table2">
             <tr>
+                <th>ID lodě</th>
                 <th>Název lodě</th>
                 <th>Název společnosti</th>
                 <th>Druh nákladu</th>
-                <th>Hmotnost nákladu (kg)</th>
-                <th>Zvolený přístav</th>
                 <th>Čas příjezdu</th>
                 <th>Čas odjezdu</th>
+                <th>Stav lodi</th>
                 <th>Zobrazit detail</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr th:each="schedule: ${harmData}"
+                th:if="${schedule.state == T(com.example.springjpaweb.enums.StateOfShip).GONE}">
+                <td th:text="${schedule.ship.id}"></td>
+                <td th:text="${schedule.ship.name}"></td>
+                <td th:text="${schedule.ship.company}"></td>
+                <td th:text="${schedule.ship.cargoType}"></td>
+                <td th:text="${schedule.arrivalTime}"></td>
+                <td th:text="${schedule.departureTime}"></td>
+                <td>Již odplula</td>
                 <td>
                     <button class="myButton1 uprostred" onclick="openForm()" type="button">Detail</button>
                 </td>
@@ -203,7 +204,7 @@
 </div>
 
 <!-- skript pro vyskakovací okno -->
-<script src="../static/js/popupWindow.js"></script>
+<script src="/js/popupWindow.js"></script>
 
 </body>
 

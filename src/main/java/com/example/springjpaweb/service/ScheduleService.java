@@ -19,6 +19,10 @@ public class ScheduleService {
         return repository.save(schedule);
     }
 
+    public List<Schedule> getSchedulesAndShips(){
+        return repository.findSchedulesAndShip();
+    }
+
     public List<Schedule> getAll() {
         return repository.findAll();
     }

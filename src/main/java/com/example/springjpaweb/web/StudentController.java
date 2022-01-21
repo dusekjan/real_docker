@@ -34,6 +34,7 @@ public class StudentController {
         initData();
     }
 
+
     @PostMapping("/student")
     public Student createStudent(@RequestBody Student student) {
         return studentService.save(student);
@@ -75,7 +76,7 @@ public class StudentController {
    }
 
 
-   
+
    private void initData(){
        Ship ship1 = shipService.save(new Ship("Lod1", "Linda", CargoType.ANIMALS));
        Ship ship2 = shipService.save(new Ship("Lod2", "Linda", CargoType.ANIMALS));

@@ -39,6 +39,10 @@ public class Ship {
         this.cargoType = cargoType;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -77,5 +81,15 @@ public class Ship {
 
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
+    }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", company='" + company + '\'' +
+                ", cargoType=" + cargoType +
+                '}';
     }
 }
