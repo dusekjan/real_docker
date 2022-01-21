@@ -17,7 +17,7 @@ public class Schedule {
     private StateOfShip state;
 
     @OneToOne
-    @JoinColumn(name = "ship_id")
+    @JoinColumn(name = "ship_id", nullable = false)
     private Ship ship;
 
     public Schedule() {

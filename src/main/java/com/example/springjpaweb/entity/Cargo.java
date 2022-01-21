@@ -14,6 +14,7 @@ public class Cargo {
     private String name;
     private String note;
     private BigDecimal price;
+    private String sender;
 
     @ManyToOne
     @JoinColumn(name="ship_id")
@@ -23,18 +24,20 @@ public class Cargo {
 
     }
 
-    public Cargo(float weight, String name, String note, BigDecimal price) {
+    public Cargo(float weight, String name, String note, BigDecimal price, String sender) {
         this.weight = weight;
         this.name = name;
         this.note = note;
         this.price = price;
+        this.sender = sender;
     }
 
-    public Cargo(float weight, String name, String note, BigDecimal price, Ship ship) {
+    public Cargo(float weight, String name, String note, BigDecimal price, String sender,Ship ship) {
         this.weight = weight;
         this.name = name;
         this.note = note;
         this.price = price;
+        this.sender = sender;
         this.ship = ship;
     }
 
@@ -82,5 +85,11 @@ public class Cargo {
         this.ship = ship;
     }
 
-    
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
 }

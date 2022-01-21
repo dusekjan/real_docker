@@ -3,7 +3,6 @@ package com.example.springjpaweb.entity;
 import com.example.springjpaweb.enums.CargoType;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Entity
@@ -38,14 +37,6 @@ public class Ship {
         this.name = name;
         this.company = company;
         this.cargoType = cargoType;
-    }
-
-    public Ship(String name, String company, CargoType cargoType, List<Cargo> cargo, Schedule schedule) {
-        this.name = name;
-        this.company = company;
-        this.cargoType = cargoType;
-        this.cargo = cargo;
-        this.schedule = schedule;
     }
 
     public String getName() {

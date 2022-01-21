@@ -39,12 +39,12 @@ public class RepositoryRelationshipTests {
         Ship ship2 = shipRepository.save(new Ship("Lod2", "Linda", CargoType.ANIMALS));
         Ship ship3 = shipRepository.save(new Ship("Lod3", "Linda", CargoType.ANIMALS));
 
-        Cargo cargo1 = cargoRepository.save(new Cargo(5f, "Brambory1", "Poznamka", new BigDecimal(10), ship1));
-        Cargo cargo2 = cargoRepository.save(new Cargo(5f, "Brambory2", "Poznamka", new BigDecimal(10), ship2));
-        Cargo cargo3 = cargoRepository.save(new Cargo(5f, "Brambory3", "Poznamka", new BigDecimal(10), ship2));
-        Cargo cargo4 = cargoRepository.save(new Cargo(5f, "Brambory4", "Poznamka", new BigDecimal(10), ship1));
-        Cargo cargo5 = cargoRepository.save(new Cargo(5f, "Brambory5", "Poznamka", new BigDecimal(10)));
-        Cargo cargo6 = cargoRepository.save(new Cargo(5f, "Brambory6", "Poznamka", new BigDecimal(10)));
+        Cargo cargo1 = cargoRepository.save(new Cargo(55100f, "Brambory", "Poznamka", new BigDecimal(10.0), "Brambory s.r.o",ship1));
+        Cargo cargo2 = cargoRepository.save(new Cargo(155f, "Jahody", "Poznamka", new BigDecimal(10.0), "StrawSaw", ship2));
+        Cargo cargo3 = cargoRepository.save(new Cargo(750f, "Uran", "Poznamka", new BigDecimal(10.0), "DangerStone", ship2));
+        Cargo cargo4 = cargoRepository.save(new Cargo(3800f, "Wish", "Poznamka", new BigDecimal(10.0), "Wish", ship1));
+        Cargo cargo5 = cargoRepository.save(new Cargo(9500f, "Ropa", "Poznamka", new BigDecimal(10.0), "Aladin"));
+        Cargo cargo6 = cargoRepository.save(new Cargo(2500f, "Brambory", "Poznamka", new BigDecimal(10.0), "Potaty"));
         List<Cargo> cargos = Arrays.asList(cargo5, cargo6);
 
         Worker worker1 = workerRepository.save(new Worker("prvni1@email.cz", "heslo", "Jan", "Nosek1", "1112223331", null));
