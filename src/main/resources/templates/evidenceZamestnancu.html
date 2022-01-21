@@ -27,9 +27,32 @@
 
 <!-- navigace -->
 <nav class="navigace obecne">
-    <a class="nav1" href='uvod.html'>ÚVOD </a>
-    <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+    <nav class="vlevoNav">
+        <a class="nav1" href='uvod.html'>ÚVOD </a>
+        <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+    </nav>
+    <nav class="vpravoNav">
+        <button  class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
+        <button  class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
+    </nav>
 </nav>
+
+<!-- vyskakovací okno-->
+<div class="popup" id="myForm2">
+    <form class="container">
+        <h2>Přihlášení uživatele</h2>
+        <div class="oddelit2">
+            <label for="emailPrihlaseni">Email</label>
+            <input type="text" id="emailPrihlaseni" name="emailPrihlaseni" placeholder="Váš email..." required><br>
+        </div>
+        <div class="oddelit2">
+            <label for="psw">Heslo</label>
+            <input type="password" id="psw" name="psw" placeholder="Váše heslo..." required><br>
+        </div>
+        <button type="submit" class="myButton3 uprostred">Přihlásit se</button><br>
+        <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
+    </form>
+</div>
 
 <!-- Vyskakovací okno -->
 <div class="popup" id="myForm">
@@ -53,14 +76,14 @@
         </div>
         <div class="oddelit">
             <label for="email">Email</label>
-            <input id="email" type="number"><br>
+            <input id="email" type="text"><br>
         </div>
         <div class="oddelit">
             <label for="telefon">Telefon</label>
-            <input type="time" id="telefon"><br>
+            <input type="text" id="telefon"><br>
         </div>
-        <button type="submit" class="btn">Uložit</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Zavřít</button>
+        <button type="submit" class="myButton3 uprostred">Uložit</button>
+        <button type="button" class="myButton2 uprostred" onclick="closeForm()">Zavřít</button>
     </form>
 </div>
 
@@ -87,27 +110,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <button type="button">Upravit</button>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button">Upravit</button>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button type="button">Upravit</button>
+                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Upravit</button>
                 </td>
             </tr>
         </table>
@@ -148,7 +151,7 @@
                 <input class="vpravo" type="text" placeholder="Mobilní číslo"><br>
             </div>
             <div class="oddelit">
-                <input type="submit" value="Přidat">
+                <input class="myButton1 uprostred" type="submit" value="Přidat">
             </div>
         </div>
     </div>

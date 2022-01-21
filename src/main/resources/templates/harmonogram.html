@@ -25,11 +25,22 @@
     <img src="../static/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
-<!-- navigace -->
-<nav class="navigace obecne">
-    <a class="nav1" href='uvod.html'>ÚVOD </a>
-    <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
-</nav>
+<!-- vyskakovací okno-->
+<div class="popup" id="myForm2">
+    <form class="container">
+        <h2>Přihlášení uživatele</h2>
+        <div class="oddelit2">
+            <label for="emailPrihlaseni">Email</label>
+            <input type="text" id="emailPrihlaseni" name="emailPrihlaseni" placeholder="Váš email..." required><br>
+        </div>
+        <div class="oddelit2">
+            <label for="psw">Heslo</label>
+            <input type="password" id="psw" name="psw" placeholder="Váše heslo..." required><br>
+        </div>
+        <button type="submit" class="myButton3 uprostred">Přihlásit se</button><br>
+        <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
+    </form>
+</div>
 
 <!--Vyskakovací okno-->
 <div class="popup" id="myForm">
@@ -76,9 +87,21 @@
             </select><br>
         </div>
 
-        <button type="button" class="btn" onclick="closeForm()">Ok</button>
+        <button type="button" class="myButton3 uprostred" onclick="closeForm()">Ok</button>
     </form>
 </div>
+
+<!-- navigace -->
+<nav class="navigace obecne">
+    <nav class="vlevoNav">
+        <a class="nav1" href='uvod.html'>ÚVOD </a>
+        <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+    </nav>
+    <nav class="vpravoNav">
+        <button  class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
+        <button  class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
+    </nav>
+</nav>
 
 <!-- článek: harmonogram -->
 <article class="clanek obecne">
@@ -109,7 +132,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <button onclick="openForm()" type="button">Detail</button>
+                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Detail</button>
                 </td>
             </tr>
         </table>
@@ -138,7 +161,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <button onclick="openForm()" type="button">Detail</button>
+                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Detail</button>
                 </td>
             </tr>
         </table>
@@ -167,7 +190,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <button onclick="openForm()" type="button">Detail</button>
+                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Detail</button>
                 </td>
             </tr>
         </table>

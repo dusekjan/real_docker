@@ -25,10 +25,33 @@
     <img src="../static/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
+<!-- vyskakovací okno-->
+<div class="popup" id="myForm2">
+    <form class="container">
+        <h2>Přihlášení uživatele</h2>
+        <div class="oddelit2">
+            <label for="emailPrihlaseni">Email</label>
+            <input type="text" id="emailPrihlaseni" name="emailPrihlaseni" placeholder="Váš email..." required><br>
+        </div>
+        <div class="oddelit2">
+            <label for="psw">Heslo</label>
+            <input type="password" id="psw" name="psw" placeholder="Váše heslo..." required><br>
+        </div>
+        <button type="submit" class="myButton3 uprostred">Přihlásit se</button><br>
+        <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
+    </form>
+</div>
+
 <!-- navigace -->
 <nav class="navigace obecne">
-    <a class="nav1" href='uvod.html'>ÚVOD </a>
-    <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+    <nav class="vlevoNav">
+        <a class="nav1" href='uvod.html'>ÚVOD </a>
+        <a class="nav2" href='rozcestnik.html'> ROZCESTNÍK </a>
+    </nav>
+    <nav class="vpravoNav">
+        <button  class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
+        <button  class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
+    </nav>
 </nav>
 
 <!-- článek: základní info -->
@@ -118,41 +141,27 @@
 <article class="clanek obecne">
     <h2>Část pro zaměstnance</h2>
     <div class="odstavec">
-        <p class="odsadit">Pro editaci databáze (přidání/odebrání lodě) se musíte přihlásit. Stejné podmínky platí i
-            pro přesunutí na harmonogram, kde se nacházejí 3 tabulky. Ty zobrazují přehled všech lodí, které se v
-            přístavu nacházejí, teprve přijedou či již odjeli. Po přihlášení též můžete nalézt i databázi se zaměstnanci
-            a
-            jejich
-            veškerými údaji. Údaje pro přihlášení Vám sdělíme pokud budete na pracovním pohovoru úspěšne přijat.
+        <p class="odsadit">Abyste mohli zobrazit tabulky s loděma a se zaměstnanci, musíte být přihlášen. Pro editaci
+            údajů musíte též kromě přihlašovacích údajů vlastnit i dostatečně silná oprávnění (Vedoucí přístavu/Admin).
         </p>
-        <div class="uprostredT">
-            <h3 class="velke">Přihlášení</h3>
-            <form id="login">
-                <table>
-                    <tr>
-                        <td>
-                            <label for="email">Email</label>
-                        </td>
-                        <td>
-                            <input type="email" id="email" name="email" placeholder="Váš email..." required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="password">Heslo</label>
-                        </td>
-                        <td>
-                            <input type="password" id="password" name="password" placeholder="Heslo..." required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="submit">Přihlásit se</button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
+        <p class="odsadit">Na naší stránce se dají zobrazit různé stránky s mnoha tabulkami. Jedna z těchto stránek je
+            harmonogram. Zde se nacházejí 3 tabulky. Ty zobrazují přehled všech lodí, které mají (či měli) s přístavem
+            něco společného. V první tabulce jsou ty lodě, které do přístavu teprve přijedou. Ve druhé tabulce se
+            nacházejí ty lodě, které se v něm aktuálně nacházejí. V té poslední je zobrazena historie všech lodí co již
+            odjely. Další tabulka, kterou jako přihlášení můžete nalézt, je databáze se zaměstnanci a jejich údaji.
+            A jak již bylo řečeno výše, pokud na to máte oprávnění, můžete tyto údaje i editovat.
+        </p>
+        <p class="odsadit">
+            Poslední stránka, kterou si můžete zobrazit je editace lodí. Zde se nacházejí všechny lodě v jedné tabulce.
+            Po kliknutí na tlačítko detail můžete tyto lodě upravit (jejich údaje). Opět ale pouze tehdy,
+            pokud na to máte oprávnění. Údaje pro přihlášení na naše stránky Vám sdělíme pokud budete na
+            pracovním pohovoru úspěšně přijat. Pro přihlášení klikněte na tlačítko níže, případně na tlačítko
+            nacházející se nahoře na obrazovce.
+        </p>
+
+        <!-- tlačítko pro přihlášení -->
+        <button class="myButton3 odsadit" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
+
     </div>
 </article>
 
@@ -160,6 +169,9 @@
 <div class="footer obecne">
     <p> Copyright &copy; 2022 | Karel Nosek & Jan Dušek - studentský projekt z předmětu PPRO</p>
 </div>
+
+<!-- skript pro vyskakovací okno -->
+<script src="../static/js/popupWindow.js"></script>
 
 </body>
 

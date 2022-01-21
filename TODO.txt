@@ -11,4 +11,5 @@ Prihlasen:
 ------------------------------------
 Karel udělat:
 
+- tlačítko ODHLÁSIT SE
 - requesty
