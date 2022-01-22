@@ -1,6 +1,7 @@
 package com.example.springjpaweb.service;
 
 import com.example.springjpaweb.entity.Cargo;
+import com.example.springjpaweb.entity.Ship;
 import com.example.springjpaweb.repository.CargoRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,9 @@ public class CargoService {
 
     public List<Cargo> getAll() {
         return repository.findAll();
+    }
+
+    public List<Cargo> getCargosOfShip(Long id) {
+        return repository.findCargosByShipId(id);
     }
 }

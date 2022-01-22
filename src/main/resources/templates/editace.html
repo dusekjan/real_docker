@@ -108,36 +108,36 @@
 <article class="clanek obecne">
     <h2 class="uprostredN">Editace lodí</h2>
     <div class="odstavec2">
-        <h3 class="velke">Seznam všech lodí</h3>
+        <h3 class="velke">Seznam všech lodí a jejich nákladů</h3>
 
         <!-- tabulka: editace lodí -->
         <table class="table2">
             <tr>
+                <th>ID lodě</th>
                 <th>Název lodě</th>
-                <th>Název společnosti</th>
+                <th>Společnost</th>
                 <th>Druh nákladu</th>
-                <th>Hmotnost nákladu (kg)</th>
-                <th>Zvolený přístav</th>
-                <th>Čas příjezdu</th>
-                <th>Čas odjezdu</th>
                 <th>Stav lodi</th>
                 <th>Upravit údaje</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr th:each="schedule: ${shipData}">
+                <td th:text="${schedule.ship.id}"></td>
+                <td th:text="${schedule.ship.name}"></td>
+                <td th:text="${schedule.ship.company}"></td>
+                <td th:text="${schedule.ship.cargoType}"></td>
+                <td th:text="${schedule.state}"></td>
                 <td>
-                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Upravit</button>
+                    <button class="myButton1 loadLoadButton" type="button"
+                            th:attr="data-ship_id=${schedule.ship.id},
+                                     data-ship_name=${schedule.ship.name}">Náklad?</button>
+                    <button class="myButton1" onclick="openForm()" type="button">Upravit</button>
                 </td>
             </tr>
         </table >
     </div>
+
+<!--    Div pro nacitani nakladu-->
+    <div class="odstavec2" id="cargoNode" hidden="true"></div>
 
     <!-- přidání nové lodě -->
     <div class="odstavec2">
@@ -203,6 +203,7 @@
 
 <!-- skript pro vyskakovací okno -->
 <script src="/js/popupWindow.js"></script>
+<script type="module" src="/js/editace.js"></script>
 
 </body>
 

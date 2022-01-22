@@ -32,8 +32,13 @@ public class StudentController {
         this.workerService = workerService;
 
         initData();
+
     }
 
+    @GetMapping("/cargos/{id}")
+    public List<Cargo> getCargosOfShip(@PathVariable long id){
+        return cargoService.getCargosOfShip(id);
+    }
 
     @PostMapping("/student")
     public Student createStudent(@RequestBody Student student) {

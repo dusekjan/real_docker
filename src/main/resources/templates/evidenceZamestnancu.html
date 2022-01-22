@@ -103,12 +103,17 @@
                 <th>Telefon</th>
                 <th>Upravit údaje</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr th:each="worker: ${workers}">
+                <td th:text="${worker.firstName}"></td>
+                <td th:text="${worker.sureName}"></td>
+                <td th:switch="${worker.role}">
+                    <span th:case="${T(com.example.springjpaweb.enums.Role).BOSS}">Vedoucí</span>
+                    <span th:case="${T(com.example.springjpaweb.enums.Role).ADMIN}">Admin</span>
+                    <span th:case="${T(com.example.springjpaweb.enums.Role).WORKER}">Pracovník</span>
+                    <span th:case="*">Bez pozice</span>
+                </td>
+                <td th:text="${worker.email}"></td>
+                <td th:text="${worker.phone}"></td>
                 <td>
                     <button class="myButton1 uprostred" onclick="openForm()" type="button">Upravit</button>
                 </td>

@@ -1,9 +1,15 @@
 package com.example.springjpaweb.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 @Entity
 @Table(name="cargo")
 public class Cargo {
@@ -16,6 +22,7 @@ public class Cargo {
     private BigDecimal price;
     private String sender;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="ship_id")
     private Ship ship;
@@ -76,6 +83,7 @@ public class Cargo {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
 
     public Ship getShip() {
         return ship;

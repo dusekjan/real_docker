@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+
 @Configuration  // protoze obsahuje Bean  funguje to i u @SpringApplicationSpringBoot
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true) // zabezpeceni ne na URL ale method
@@ -20,17 +21,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable(); //aby fungoval ten preauthorize
-        http.cors().and()  //aby to povolilo Credentials cors
+        http.cors();  //aby to povolilo Credentials cors
                 // ...
-                .authorizeHttpRequests(authorize -> authorize
-   //                     .mvcMatchers("/resources/**", "/signup", "/about").permitAll()
-                        .mvcMatchers("/student").permitAll()
-                        .mvcMatchers("/students").hasRole("USER")
-    //                    .mvcMatchers("/**").hasRole("ADMIN")
-    //                    .mvcMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
-    //                    .anyRequest().denyAll()
-                        .anyRequest().hasRole("ADMIN")
-                );
+//                .authorizeHttpRequests(authorize -> authorize
+//   //                     .mvcMatchers("/resources/**", "/signup", "/about").permitAll()
+////                        .mvcMatchers("/student").permitAll()
+////                        .mvcMatchers("/students").hasRole("USER")
+//    //                    .mvcMatchers("/**").hasRole("ADMIN")
+//    //                    .mvcMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+//    //                    .anyRequest().denyAll()
+////                        .anyRequest().hasRole("ADMIN")
+//                                .mvcMatchers("/cargos").permitAll()
+//                        .anyRequest().permitAll()
+//                );
         http.httpBasic(Customizer.withDefaults()); // zvolen druh autentizace
     }
 

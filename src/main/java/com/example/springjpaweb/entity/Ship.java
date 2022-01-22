@@ -1,10 +1,17 @@
 package com.example.springjpaweb.entity;
 
 import com.example.springjpaweb.enums.CargoType;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.List;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 @Entity
 @Table(name="ship")
 public class Ship {
@@ -18,6 +25,7 @@ public class Ship {
     private CargoType cargoType; // podrobneji v entite Cargo
 
     //lod neni vlastnikem ani jednoho vztahu takze nepotrebuje mit gettery a settery
+    @JsonManagedReference
     @OneToMany(mappedBy = "ship")
     private List<Cargo> cargo;
 

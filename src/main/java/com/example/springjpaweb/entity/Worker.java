@@ -1,10 +1,14 @@
 package com.example.springjpaweb.entity;
 
 import com.example.springjpaweb.enums.Role;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 @Entity
 @Table(name = "worker")
 public class Worker {
@@ -28,10 +32,13 @@ public class Worker {
     private String phone;
 
     // reflexive oneToMany
+
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "boss_id")
     private Worker boss;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "boss")
     private List<Worker> bosses;
 
@@ -114,6 +121,7 @@ public class Worker {
         this.boss = boss;
     }
 
+    @JsonIgnore
     public List<Worker> getBosses() {
         return bosses;
     }
