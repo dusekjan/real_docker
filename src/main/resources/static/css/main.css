@@ -93,8 +93,6 @@ p {
 }
 
 .odstavec2 {
-    /*margin: 10px auto 10px auto;*/
-    /*width: 80%;*/
     margin: 10px;
     height: auto;
 }
@@ -264,7 +262,7 @@ h3 {
 }
 
 .obrazek4 {
-    width: 95%;
+    width: 80%;
     height: auto;
     margin-left: 20px;
 }
@@ -302,93 +300,103 @@ h3 {
 }
 
 .close {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     text-decoration: none;
-    color: #333;
     float: right;
     background-color: white;
     border: 0;
+    margin-top: -10px;
+    margin-right: -5px;
+    cursor: pointer;
 }
 
-.close:hover{
-    position:relative;
-    top: 1px;
-    color: blue;
+.close:hover {
+    position: relative;
+    color: #d0451b;
 }
 
 /* STYLOVÁNÍ PRO TLAČÍTKA */
 
 /* detail a upravení lodě/zaměstnance */
 .myButton1 {
-    background:linear-gradient(to bottom, #ffffff 5%, #e4e4f7 100%);
-    background-color:#ffffff;
-    border-radius:6px;
-    border:1px solid #a699a6;
-    display:inline-block;
-    cursor:pointer;
-    color:#666666;
-    font-family:Arial, serif;
-    font-size:15px;
-    font-weight:bold;
-    padding:2px 1px;
-    text-decoration:none;
+    background: linear-gradient(to bottom, #ffffff 5%, #e4e4f7 100%);
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #a699a6;
+    display: inline-block;
+    cursor: pointer;
+    color: #666666;
+    font-family: Arial, serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px 1px;
+    text-decoration: none;
 
 }
+
 .myButton1:hover {
-    background:linear-gradient(to bottom, #e4e4f7 5%, #ffffff 100%);
-    background-color:#e4e4f7;
+    background: linear-gradient(to bottom, #e4e4f7 5%, #ffffff 100%);
+    background-color: #e4e4f7;
 }
 
 .myButton1:active, .myButton2:active, .myButton3:active {
-    position:relative;
-    top:1px;
+    position: relative;
+    top: 1px;
 }
 
 /* odhlášení uživatele(v navigaci) */
 .myButton2 {
-    background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-    background-color:#d0451b;
-    border-radius:5px;
-    border:1px solid #942911;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial, serif;
-    font-size:13px;
-    font-weight:bold;
-    padding:3px 24px;
-    text-decoration:none;
+    background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    background-color: #d0451b;
+    border-radius: 5px;
+    border: 1px solid #942911;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial, serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 3px 24px;
+    text-decoration: none;
 }
+
 .myButton2:hover {
-    background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
-    background-color:#bc3315;
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color: #bc3315;
 }
 
 /* přihlášení uživatele(v navigaci) */
 .myButton3 {
-    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-    background-color:#7892c2;
-    border-radius:5px;
-    border:1px solid #4e6096;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial, serif;
-    font-size:13px;
-    font-weight:bold;
-    padding:3px 24px;
-    text-decoration:none;
-}
-.myButton3:hover {
-    background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-    background-color:#476e9e;
+    background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color: #7892c2;
+    border-radius: 5px;
+    border: 1px solid #4e6096;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial, serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 3px 24px;
+    text-decoration: none;
 }
 
-.uprostred{
-    margin: 0 25% 5px 25%;
-    width:50%
+.myButton3:hover {
+    background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+    background-color: #476e9e;
 }
+
+.uprostred {
+    margin: 0 25% 5px 25%;
+    width: 50%
+}
+
+.uprostred2 {
+    margin: 0 10% 0 10%;
+    width: 80%;
+}
+
 
 
 

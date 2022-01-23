@@ -25,7 +25,7 @@
     <img src="/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
-<!-- vyskakovací okno-->
+<!-- vyskakovací okno pro přihlášení uživatele-->
 <div class="popup" id="myForm2">
     <form class="container">
         <h2>Přihlášení uživatele</h2>
@@ -35,16 +35,18 @@
         </div>
         <div class="oddelit2">
             <label for="psw">Heslo</label>
-            <input type="password" id="psw" name="psw" placeholder="Váše heslo..." required><br>
+            <input type="password" id="psw" name="psw" placeholder="Vaše heslo..." required><br>
         </div>
-        <button type="submit" class="myButton3 uprostred">Přihlásit se</button><br>
+        <button type="submit" class="myButton3 uprostred">Přihlásit se</button>
+        <br>
         <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
     </form>
 </div>
 
-<!-- Vyskakovací okno -->
+<!-- Vyskakovací okno pro zobrazení detailu lodě a její úpravy -->
 <div class="popup" id="myForm">
     <form class="container">
+        <button type="button" class="close" onclick="closeForm()">x</button>
         <h2>Detaily lodě</h2>
         <div class="oddelit">
             <label for="nazevL">Název lodě</label>
@@ -56,27 +58,18 @@
         </div>
         <div class="oddelit">
             <label for="naklad">Druh nákladu</label>
-            <input type="text" id="naklad"><br>
-        </div>
-        <div class="oddelit">
-            <label for="hmotnost">Hmotnost nákladu (kg)</label>
-            <input type="number" id="hmotnost"><br>
-        </div>
-        <div class="oddelit">
-            <label for="pristav">Zvolený přístav:</label>
-            <select id="pristav">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+            <select id="naklad">
+                <option value="1">FOOD</option>
+                <option value="2">ANIMALS</option>
+                <option value="3">FUELS</option>
+                <option value="4">VEHICLES</option>
+                <option value="5">MACHINERY</option>
+                <option value="6">DRYBULK</option>
+                <option value="7">LIQUIDBULK</option>
+                <option value="8">CHEMICAL</option>
+                <option value="9">OTHERS</option>
+                <option value="10">EMPTY</option>
             </select><br>
-        </div>
-        <div class="oddelit">
-            <label for="casP">Čas příjezdu</label>
-            <input type="time" id="casP"><br>
-        </div>
-        <div class="oddelit">
-            <label for="casO">Čas odjezdu</label>
-            <input type="time" id="casO"><br>
         </div>
         <div class="oddelit">
             <label for="stav">Stav lodi</label>
@@ -86,9 +79,76 @@
                 <option value="3">Již odjela</option>
             </select><br>
         </div>
-
+        <div class="oddelit">
+            <label for="casP">Čas příjezdu</label>
+            <input type="text" id="casP" placeholder=""><br>
+        </div>
+        <div class="oddelit">
+            <label for="casO">Čas odjezdu</label>
+            <input type="text" id="casO"><br>
+        </div>
         <button type="submit" class="myButton3 uprostred">Uložit</button>
-        <button type="button" class="myButton2 uprostred" onclick="closeForm()">Zavřít</button>
+        <button type="button" class="myButton2 uprostred">Smazat</button>
+    </form>
+</div>
+
+<!-- Vyskakovací okno pro přidání nákladu-->
+<div class="popup" id="myForm3">
+    <form class="container">
+        <button type="button" class="close" onclick="closeForm3()">x</button>
+        <h2>Přidat nový náklad</h2>
+        <div class="oddelit">
+            <label for="nazevPridat">Název nákladu</label>
+            <input type="text" id="nazevPridat"><br>
+        </div>
+        <div class="oddelit">
+            <label for="hodnotaPridat">Hodnota nákladu (Kč)</label>
+            <input type="number" id="hodnotaPridat"><br>
+        </div>
+        <div class="oddelit">
+            <label for="hmotnostPridat">Hmotnost nákladu (Kg)</label>
+            <input type="number" id="hmotnostPridat"><br>
+        </div>
+        <div class="oddelit">
+            <label for="odesPridat">Odesílatel</label>
+            <input type="text" id="odesPridat"><br>
+        </div>
+        <div class="oddelit">
+            <label for="poznPridat">Poznámka</label>
+            <input type="text" id="poznPridat"><br>
+        </div>
+        <button type="submit" class="myButton3 uprostred">Uložit</button>
+        <button type="button" class="myButton2 uprostred">Smazat</button>
+    </form>
+</div>
+
+<!-- Vyskakovací okno pro zobrazení detailu nákladu a jeho upravení-->
+<div class="popup" id="myForm4">
+    <form class="container">
+        <button type="button" class="close" onclick="closeForm4()">x</button>
+        <h2>Zobrazit detail nákladu</h2>
+        <div class="oddelit">
+            <label for="nazevUpravit">Název nákladu</label>
+            <input type="text" id="nazevUpravit"><br>
+        </div>
+        <div class="oddelit">
+            <label for="hodnotaUpravit">Hodnota nákladu (Kč)</label>
+            <input type="number" id="hodnotaUpravit"><br>
+        </div>
+        <div class="oddelit">
+            <label for="hmotnostUpravit">Hmotnost nákladu (Kg)</label>
+            <input type="number" id="hmotnostUpravit"><br>
+        </div>
+        <div class="oddelit">
+            <label for="odesUpravit">Odesílatel</label>
+            <input type="text" id="odesUpravit"><br>
+        </div>
+        <div class="oddelit">
+            <label for="poznUpravit">Poznámka</label>
+            <input type="text" id="poznUpravit"><br>
+        </div>
+        <button type="submit" class="myButton3 uprostred">Uložit</button>
+        <button type="button" class="myButton2 uprostred">Smazat</button>
     </form>
 </div>
 
@@ -99,8 +159,8 @@
         <a class="nav2" href='/rozcestnik'> ROZCESTNÍK </a>
     </nav>
     <nav class="vpravoNav">
-        <button  class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
-        <button  class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
+        <button class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
+        <button class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
     </nav>
 </nav>
 
@@ -121,6 +181,7 @@
                 <th>Čas příjezdu</th>
                 <th>Čas odjezdu</th>
                 <th>Upravit údaje</th>
+                <th>Zobrazit náklad</th>
             </tr>
             <tr th:each="schedule: ${shipData}">
                 <td th:text="${schedule.ship.id}"></td>
@@ -136,17 +197,26 @@
                 <td th:text="${schedule.arrivalTime}"></td>
                 <td th:text="${schedule.departureTime}"></td>
                 <td>
-                    <button class="myButton1 loadLoadButton" type="button"
+                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Upravit</button>
+                </td>
+                <td>
+                    <button class="myButton1 uprostred loadLoadButton" type="button"
                             th:attr="data-ship_id=${schedule.ship.id},
-                                     data-ship_name=${schedule.ship.name}">Náklad?</button>
-                    <button class="myButton1" onclick="openForm()" type="button">Upravit</button>
+                                     data-ship_name=${schedule.ship.name}">Náklad
+                    </button>
                 </td>
             </tr>
-        </table >
+        </table>
     </div>
 
-<!--    Div pro nacitani nakladu-->
-    <div class="odstavec2" id="cargoNode" hidden="true"></div>
+    <!--    Div pro nacitani nakladu-->
+    <div class="odstavec2" id="cargoNode" hidden="true">
+    </div>
+
+
+    <div>
+        <button type="button" class="myButton1 uprostred" onclick="openForm3()">Přidat nový náklad</button>
+    </div>
 
     <!-- přidání nové lodě -->
     <div class="odstavec2">
@@ -154,7 +224,7 @@
 
         <!--obrázek-->
         <div class="obrVpravo">
-            <img src="/img/obr3.jpg" class="obrazek4" alt="Obrázek zaměstnanců">
+            <img src="/img/obr3.jpg" class="obrazek4" alt="Obrázek lodí">
         </div>
 
         <div class="novyVlevo">
@@ -168,27 +238,18 @@
             </div>
             <div class="oddelit">
                 <label>Druh nákladu:</label>
-                <input class="vpravo" type="text" placeholder="Druh nákladu"><br>
-            </div>
-            <div class="oddelit">
-                <label>Hmotnost nákladu (kg):</label>
-                <input class="vpravo" type="number" placeholder="Hmotnost"><br>
-            </div>
-            <div class="oddelit">
-                <label>Zvolený přístav:</label>
                 <select class="vpravo">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    <option value="1">FOOD</option>
+                    <option value="2">ANIMALS</option>
+                    <option value="3">FUELS</option>
+                    <option value="4">VEHICLES</option>
+                    <option value="5">MACHINERY</option>
+                    <option value="6">DRYBULK</option>
+                    <option value="7">LIQUIDBULK</option>
+                    <option value="8">CHEMICAL</option>
+                    <option value="9">OTHERS</option>
+                    <option value="10">EMPTY</option>
                 </select><br>
-            </div>
-            <div class="oddelit">
-                <label>Čas příjezdu:</label>
-                <input class="vpravo" type="time" ><br>
-            </div>
-            <div class="oddelit">
-                <label>Čas odjezdu:</label>
-                <input class="vpravo"type="time"><br>
             </div>
             <div class="oddelit">
                 <label>Stav lodi:</label>
@@ -197,6 +258,14 @@
                     <option value="2">Aktuálně v přístavu</option>
                     <option value="3">Již odjela</option>
                 </select><br>
+            </div>
+            <div class="oddelit">
+                <label>Čas příjezdu:</label>
+                <input class="vpravo" type="text" placeholder="dd.mm.yyyy hh:mm"><br>
+            </div>
+            <div class="oddelit">
+                <label>Čas odjezdu:</label>
+                <input class="vpravo" type="text" placeholder="dd.mm.yyyy hh:mm"><br>
             </div>
             <div class="oddelit">
                 <input class="myButton1 uprostred" type="submit" value="Přidat">

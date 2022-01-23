@@ -32,8 +32,8 @@
         <a class="nav2" href='/rozcestnik'> ROZCESTNÍK </a>
     </nav>
     <nav class="vpravoNav">
-        <button  class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
-        <button  class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
+        <button class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
+        <button class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
     </nav>
 </nav>
 
@@ -47,9 +47,10 @@
         </div>
         <div class="oddelit2">
             <label for="psw">Heslo</label>
-            <input type="password" id="psw" name="psw" placeholder="Váše heslo..." required><br>
+            <input type="password" id="psw" name="psw" placeholder="Vaše heslo..." required><br>
         </div>
-        <button type="submit" class="myButton3 uprostred">Přihlásit se</button><br>
+        <button type="submit" class="myButton3 uprostred">Přihlásit se</button>
+        <br>
         <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
     </form>
 </div>
@@ -57,7 +58,8 @@
 <!-- Vyskakovací okno -->
 <div class="popup" id="myForm">
     <form class="container">
-        <h2>Detaily zaměstnance  <button type="button" class="close" onclick="closeForm()">x</button></h2>
+        <button type="button" class="close" onclick="closeForm()">x</button>
+        <h2>Detaily zaměstnance</h2>
         <div class="oddelit">
             <label for="jmeno">Jméno</label>
             <input type="text" id="jmeno"><br>
@@ -83,7 +85,7 @@
             <input type="text" id="telefon"><br>
         </div>
         <button type="submit" class="myButton3 uprostred" id="updateWorker">Uložit</button>
-        <button type="button" class="myButton2 uprostred" onclick="closeForm()">Zavřít</button>
+        <button type="button" class="myButton2 uprostred">Smazat</button>
     </form>
 </div>
 
@@ -117,7 +119,9 @@
                 <td th:text="${worker.email}"></td>
                 <td th:text="${worker.phone}"></td>
                 <td>
-                    <button class="myButton1 uprostred editWorker" th:attr="data-worker_id=${worker.id}" type="button">Upravit</button>
+                    <button class="myButton1 uprostred editWorker" th:attr="data-worker_id=${worker.id}" type="button">
+                        Upravit
+                    </button>
                 </td>
             </tr>
         </table>
@@ -159,7 +163,7 @@
             </div>
             <div class="oddelit">
                 <label>Telefon:</label>
-                <input class="vpravo" type="text" placeholder="Mobilní číslo" id="phone"><br>
+                <input class="vpravo" type="text" placeholder="Telefonní číslo" id="phone"><br>
             </div>
             <div class="oddelit">
                 <input class="myButton1 uprostred" id="postWorker" type="submit" value="Přidat">

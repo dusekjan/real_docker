@@ -68,9 +68,10 @@ function fillCargosTable(data, shipName, shipId){
         row.insertCell(4).appendChild(document.createTextNode(cargo.note))
 
         let button = document.createElement("BUTTON")
+        button.classList.add("uprostred2")
         button.classList.add("myButton1")
         button.setAttribute("data-cargo_id", cargo.id)
-        button.setAttribute("onclick", "openForm()")
+        button.setAttribute("onclick", "openForm4()")
         button.textContent = "Upravit"
         row.insertCell(5).appendChild(button)
     })
