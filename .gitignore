@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Database files which are being rewritten by app ###
+testdb.lck
+testdb.log
+testdb.properties
+testdb.script
