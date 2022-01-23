@@ -3,6 +3,7 @@ package com.example.springjpaweb.entity;
 import com.example.springjpaweb.enums.StateOfShip;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="schedule")
@@ -10,10 +11,18 @@ public class Schedule {
     @Id
     @GeneratedValue
     private long id;
+
+    @Size(min = 1)
+    @Column(nullable = false)
     private String arrivalTime;
+
+    @Size(min = 1)
+    @Column(nullable = false)
     private String departureTime;
 
+
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private StateOfShip state;
 
     @OneToOne

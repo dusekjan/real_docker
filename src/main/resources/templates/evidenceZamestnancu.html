@@ -69,9 +69,9 @@
         <div class="oddelit">
             <label for="naklad">Pozice</label>
             <select id="naklad">
-                <option value="1">Vedoucí přístavu</option>
-                <option value="2">Řadový zaměstnanec</option>
-                <option value="3">Majitel přístavu/Admin</option>
+                <option value="BOSS">Vedoucí přístavu</option>
+                <option value="WORKER">Řadový zaměstnanec</option>
+                <option value="ADMIN">Majitel přístavu/Admin</option>
             </select><br>
         </div>
         <div class="oddelit">
@@ -82,7 +82,7 @@
             <label for="telefon">Telefon</label>
             <input type="text" id="telefon"><br>
         </div>
-        <button type="submit" class="myButton3 uprostred">Uložit</button>
+        <button type="submit" class="myButton3 uprostred" id="updateWorker">Uložit</button>
         <button type="button" class="myButton2 uprostred" onclick="closeForm()">Zavřít</button>
     </form>
 </div>
@@ -96,6 +96,7 @@
         <!-- tabulka: evidence zaměstnanců -->
         <table class="table2">
             <tr>
+                <th>ID</th>
                 <th>Jméno</th>
                 <th>Příjmení</th>
                 <th>Pozice</th>
@@ -104,6 +105,7 @@
                 <th>Upravit údaje</th>
             </tr>
             <tr th:each="worker: ${workers}">
+                <td th:text="${worker.id}"></td>
                 <td th:text="${worker.firstName}"></td>
                 <td th:text="${worker.sureName}"></td>
                 <td th:switch="${worker.role}">
@@ -115,7 +117,7 @@
                 <td th:text="${worker.email}"></td>
                 <td th:text="${worker.phone}"></td>
                 <td>
-                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Upravit</button>
+                    <button class="myButton1 uprostred editWorker" th:attr="data-worker_id=${worker.id}" type="button">Upravit</button>
                 </td>
             </tr>
         </table>
@@ -130,33 +132,37 @@
             <img src="/img/obr1.jpg" class="obrazek4" alt="Obrázek zaměstnanců">
         </div>
 
-        <div class="novyVlevo">
+        <div class="novyVlevo" id="newWorkerForm">
             <div class="oddelit">
                 <label>Jméno:</label>
-                <input class="vpravo" type="text" placeholder="Jméno"><br>
+                <input class="vpravo" type="text" placeholder="Jméno" id="firstName"><br>
             </div>
             <div class="oddelit">
                 <label>Příjmení:</label>
-                <input class="vpravo" type="text" placeholder="Příjmení"><br>
+                <input class="vpravo" type="text" placeholder="Příjmení" id="sureName"><br>
             </div>
             <div class="oddelit">
                 <label>Pozice:</label>
-                <select class="vpravo">
-                    <option value="1">Vedoucí přístavu</option>
-                    <option value="2">Řadový zaměstnanec</option>
-                    <option value="3">Majitel přístavu/Admin</option>
+                <select class="vpravo" id="role">
+                    <option value="BOSS">Vedoucí přístavu</option>
+                    <option value="WORKER">Řadový zaměstnanec</option>
+                    <option value="ADMIN">Majitel přístavu/Admin</option>
                 </select><br>
             </div>
             <div class="oddelit">
                 <label>Email:</label>
-                <input class="vpravo" type="text" placeholder="Email"><br>
+                <input class="vpravo" type="text" placeholder="Email" id="emailNew"><br>
+            </div>
+            <div class="oddelit">
+                <label>Heslo:</label>
+                <input class="vpravo" type="password" placeholder="Heslo" id="password"><br>
             </div>
             <div class="oddelit">
                 <label>Telefon:</label>
-                <input class="vpravo" type="text" placeholder="Mobilní číslo"><br>
+                <input class="vpravo" type="text" placeholder="Mobilní číslo" id="phone"><br>
             </div>
             <div class="oddelit">
-                <input class="myButton1 uprostred" type="submit" value="Přidat">
+                <input class="myButton1 uprostred" id="postWorker" type="submit" value="Přidat">
             </div>
         </div>
     </div>
@@ -168,7 +174,8 @@
 </div>
 
 <!-- skript pro vyskakovací okno -->
-<script src="/js/popupWindow.js"></script>
+<script src="/js/lib/popupWindow.js"></script>
+<script type="module" src="/js/evidenceZamestnancu.js"></script>
 
 </body>
 

@@ -118,6 +118,8 @@
                 <th>Společnost</th>
                 <th>Druh nákladu</th>
                 <th>Stav lodi</th>
+                <th>Čas příjezdu</th>
+                <th>Čas odjezdu</th>
                 <th>Upravit údaje</th>
             </tr>
             <tr th:each="schedule: ${shipData}">
@@ -125,7 +127,14 @@
                 <td th:text="${schedule.ship.name}"></td>
                 <td th:text="${schedule.ship.company}"></td>
                 <td th:text="${schedule.ship.cargoType}"></td>
-                <td th:text="${schedule.state}"></td>
+                <td th:switch="${schedule.state}">
+                    <span th:case="${T(com.example.springjpaweb.enums.StateOfShip).ARRIVING}">Očekává se</span>
+                    <span th:case="${T(com.example.springjpaweb.enums.StateOfShip).HARBER}">V přístavu</span>
+                    <span th:case="${T(com.example.springjpaweb.enums.StateOfShip).GONE}">Již odplula</span>
+                    <span th:case="*">Bez statusu</span>
+                </td>
+                <td th:text="${schedule.arrivalTime}"></td>
+                <td th:text="${schedule.departureTime}"></td>
                 <td>
                     <button class="myButton1 loadLoadButton" type="button"
                             th:attr="data-ship_id=${schedule.ship.id},
@@ -202,7 +211,7 @@
 </div>
 
 <!-- skript pro vyskakovací okno -->
-<script src="/js/popupWindow.js"></script>
+<script src="/js/lib/popupWindow.js"></script>
 <script type="module" src="/js/editace.js"></script>
 
 </body>

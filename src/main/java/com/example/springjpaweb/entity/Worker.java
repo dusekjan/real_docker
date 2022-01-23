@@ -4,6 +4,8 @@ import com.example.springjpaweb.enums.Role;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @JsonIdentityInfo(
@@ -16,10 +18,13 @@ public class Worker {
     @GeneratedValue
     private long id;
 
+    @Size(min=1)
     @Column(nullable = false, unique = true)
+    @Email
     private String email;
 
     // TODO password neukladat v plain textu!!!
+    @Size(min = 4)
     @Column(nullable = false)
     private String password;
 
@@ -27,8 +32,14 @@ public class Worker {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Size(min=1)
+    @Column(nullable = false)
     private String firstName;
+
+    @Size(min=1)
+    @Column(nullable = false)
     private String sureName;
+
     private String phone;
 
     // reflexive oneToMany
@@ -128,5 +139,19 @@ public class Worker {
 
     public void setBosses(List<Worker> bosses) {
         this.bosses = bosses;
+    }
+
+    @Override
+    public String toString() {
+        return "Worker{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", firstName='" + firstName + '\'' +
+                ", sureName='" + sureName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", boss=" + boss +
+                '}';
     }
 }

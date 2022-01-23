@@ -42,55 +42,6 @@
     </form>
 </div>
 
-<!--Vyskakovací okno-->
-<div class="popup" id="myForm">
-    <form class="container">
-        <h2>Detaily lodě</h2>
-        <div class="oddelit">
-            <label for="nazevL">Název lodě</label>
-            <input type="text" id="nazevL" disabled><br>
-        </div>
-        <div class="oddelit">
-            <label for="nazevS">Název společnosti</label>
-            <input type="text" id="nazevS" disabled><br>
-        </div>
-        <div class="oddelit">
-            <label for="naklad">Druh nákladu</label>
-            <input type="text" id="naklad" disabled><br>
-        </div>
-        <div class="oddelit">
-            <label for="hmotnost">Hmotnost nákladu (kg)</label>
-            <input type="number" id="hmotnost" disabled><br>
-        </div>
-        <div class="oddelit">
-            <label for="pristav">Zvolený přístav:</label>
-            <select id="pristav">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select><br>
-        </div>
-        <div class="oddelit">
-            <label for="casP">Čas příjezdu</label>
-            <input type="time" id="casP" disabled><br>
-        </div>
-        <div class="oddelit">
-            <label for="casO">Čas odjezdu</label>
-            <input type="time" id="casO" disabled><br>
-        </div>
-        <div class="oddelit">
-            <label for="stav">Stav lodi</label>
-            <select id="stav">
-                <option value="1">Očekává se</option>
-                <option value="2">Aktuálně v přístavu</option>
-                <option value="3">Již odjela</option>
-            </select><br>
-        </div>
-
-        <button type="button" class="myButton3 uprostred" onclick="closeForm()">Ok</button>
-    </form>
-</div>
-
 <!-- navigace -->
 <nav class="navigace obecne">
     <nav class="vlevoNav">
@@ -119,7 +70,6 @@
                 <th>Čas příjezdu</th>
                 <th>Čas odjezdu</th>
                 <th>Stav lodi</th>
-                <th>Zobrazit detail</th>
             </tr>
             <tr th:each="schedule: ${harmData}"
                 th:if="${schedule.state == T(com.example.springjpaweb.enums.StateOfShip).ARRIVING}">
@@ -130,9 +80,6 @@
                 <td th:text="${schedule.arrivalTime}"></td>
                 <td th:text="${schedule.departureTime}"></td>
                 <td>Očekává se</td>
-                <td>
-                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Detail</button>
-                </td>
             </tr>
         </table>
     </div>
@@ -149,7 +96,6 @@
                 <th>Čas příjezdu</th>
                 <th>Čas odjezdu</th>
                 <th>Stav lodi</th>
-                <th>Zobrazit detail</th>
             </tr>
             <tr th:each="schedule: ${harmData}"
                 th:if="${schedule.state == T(com.example.springjpaweb.enums.StateOfShip).HARBER}">
@@ -160,9 +106,6 @@
                 <td th:text="${schedule.arrivalTime}"></td>
                 <td th:text="${schedule.departureTime}"></td>
                 <td>V přístavu</td>
-                <td>
-                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Detail</button>
-                </td>
             </tr>
         </table>
     </div>
@@ -179,7 +122,6 @@
                 <th>Čas příjezdu</th>
                 <th>Čas odjezdu</th>
                 <th>Stav lodi</th>
-                <th>Zobrazit detail</th>
             </tr>
             <tr th:each="schedule: ${harmData}"
                 th:if="${schedule.state == T(com.example.springjpaweb.enums.StateOfShip).GONE}">
@@ -190,9 +132,6 @@
                 <td th:text="${schedule.arrivalTime}"></td>
                 <td th:text="${schedule.departureTime}"></td>
                 <td>Již odplula</td>
-                <td>
-                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Detail</button>
-                </td>
             </tr>
         </table>
     </div>
@@ -204,7 +143,7 @@
 </div>
 
 <!-- skript pro vyskakovací okno -->
-<script src="/js/popupWindow.js"></script>
+<script src="/js/lib/popupWindow.js"></script>
 
 </body>
 

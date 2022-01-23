@@ -1,6 +1,9 @@
 //vyskakovací okno pro editaci lodí/zaměstnanců
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    let form = document.getElementById("myForm")
+    form.style.display = "block";
+
+    return form
 }
 
 function closeForm() {

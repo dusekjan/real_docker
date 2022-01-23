@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 @JsonIdentityInfo(
@@ -16,15 +17,26 @@ public class Cargo {
     @Id
     @GeneratedValue
     private long id;
+
+    @Column(nullable = false)
     private float weight;
+
+    @Size(min = 1)
+    @Column(nullable = false)
     private String name;
+
     private String note;
+
+    @Column(nullable = false)
     private BigDecimal price;
+
+    @Size(min = 1)
+    @Column(nullable = false)
     private String sender;
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name="ship_id")
+    @JoinColumn(name="ship_id", nullable = false)
     private Ship ship;
 
     public Cargo() {

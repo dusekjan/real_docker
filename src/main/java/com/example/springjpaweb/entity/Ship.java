@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @JsonIdentityInfo(
@@ -18,7 +19,13 @@ public class Ship {
     @Id
     @GeneratedValue
     private long id;
+
+    @Size(min = 1)
+    @Column(nullable = false)
     private String name;
+
+    @Size(min = 1)
+    @Column(nullable = false)
     private String company;
 
     @Enumerated(EnumType.STRING)

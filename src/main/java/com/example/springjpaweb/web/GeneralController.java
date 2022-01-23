@@ -58,6 +58,7 @@ public class GeneralController {
     @GetMapping("/editace-zamestnancu")
     public String getEditEmployeePage(Model model) {
         List<Worker> workerList = workerService.getAll();
+        System.out.println(workerList);
 
         model.addAttribute("workers", workerList);
 
