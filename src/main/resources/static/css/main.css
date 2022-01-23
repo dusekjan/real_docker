@@ -16,6 +16,7 @@ table {
 
 .table2 {
     margin: 0 auto 40px auto;
+    max-height: 500px;
 }
 
 tbody {
@@ -279,6 +280,7 @@ h3 {
     top: 50%;
     z-index: 9;
     transform: translate(-50%, -50%);
+    width: 400px;
 }
 
 .container {
@@ -297,6 +299,22 @@ h3 {
 
 .container .btn:hover, .open-button:hover {
     opacity: 1;
+}
+
+.close {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    float: right;
+    background-color: white;
+    border: 0;
+}
+
+.close:hover{
+    position:relative;
+    top: 1px;
+    color: blue;
 }
 
 /* STYLOVÁNÍ PRO TLAČÍTKA */
