@@ -26,7 +26,7 @@ public class ShipService {
         return repository.save(ship);
     }
 
-    @PreAuthorize(("hasRole('SUPERADMIN')"))
+    //  @PreAuthorize(("hasRole('SUPERADMIN')")) //ma smysl tohle psat na Beanach a ne na nejaky tride - Method security
     public void delete(long id){
         repository.deleteById(id);
     }

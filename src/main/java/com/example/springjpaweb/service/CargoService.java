@@ -6,6 +6,7 @@ import com.example.springjpaweb.repository.CargoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CargoService {
@@ -16,6 +17,10 @@ public class CargoService {
         this.repository = repository;
     }
 
+    public void delete(long id){
+        repository.deleteById(id);
+    }
+
     public Cargo save(Cargo cargo) {
         return repository.save(cargo);
     }
@@ -24,7 +29,11 @@ public class CargoService {
         return repository.findAll();
     }
 
-    public List<Cargo> getCargosOfShip(Long id) {
-        return repository.findCargosByShipId(id);
+    public Optional<Cargo> findById(long id) {
+        return repository.findById(id);
+    }
+
+    public List<Cargo> getCargosOfShip(long shipId) {
+        return repository.findCargosByShipId(shipId);
     }
 }

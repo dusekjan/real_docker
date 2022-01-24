@@ -15,14 +15,12 @@ import java.math.BigDecimal;
 @Configuration
 public class DatabaseFiller {
 
-    private final StudentService studentService;
     private final ShipService shipService;
     private final CargoService cargoService;
     private final ScheduleService scheduleService;
     private final WorkerService workerService;
 
-    public DatabaseFiller(StudentService studentService, ShipService shipService, CargoService cargoService, ScheduleService scheduleService, WorkerService workerService) {
-        this.studentService = studentService;
+    public DatabaseFiller(ShipService shipService, CargoService cargoService, ScheduleService scheduleService, WorkerService workerService) {
         this.shipService = shipService;
         this.cargoService = cargoService;
         this.scheduleService = scheduleService;

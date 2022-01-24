@@ -7,13 +7,22 @@ import com.example.springjpaweb.entity.Worker;
 import com.example.springjpaweb.service.CargoService;
 import com.example.springjpaweb.service.ScheduleService;
 import com.example.springjpaweb.service.WorkerService;
+import com.example.springjpaweb.web.errors.ErrorResponse;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.TransactionSystemException;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Controller
+@Transactional
 public class GeneralController {
 
     private final ScheduleService scheduleService;
@@ -51,6 +60,10 @@ public class GeneralController {
 
         model.addAttribute("shipData", completeSchedule);
 
+        for (Schedule schedule : completeSchedule){
+            System.out.println(schedule);
+        }
+
         return "editace";
     }
 
@@ -70,6 +83,30 @@ public class GeneralController {
         return "error";
     }
 
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleTransactionSystemException(TransactionSystemException e) {
+        e.printStackTrace();
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse("Instanci se nepodařilo uložit"), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleDataIntegrityException(DataIntegrityViolationException e) {
+        e.printStackTrace();
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse("Poruseni integrity dat - neunikatni nebo nulova povinna data"), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handlerGeneralException(RuntimeException e) {
+        e.printStackTrace();
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse("Nastala chyba"), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleException(EmptyResultDataAccessException e) {
+        e.printStackTrace();
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse("Nenalezen"), HttpStatus.NOT_FOUND);
+    }
 
 //    @GetMapping("/")
 //    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {

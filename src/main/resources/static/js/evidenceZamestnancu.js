@@ -1,4 +1,5 @@
-import {getData, putData, postData} from "./lib/request.js";
+import {getData, putData, postData, deleteData} from "./lib/request.js";
+import {checkResponse} from "./lib/request.js";
 
 
 const editWorkerButtons = document.querySelectorAll('.editWorker')
@@ -26,20 +27,8 @@ function postWorker(){
     postData("http://localhost:8080/worker", worker)
         .then(
             function(response) {
-                if (response.status !== 200) {
-                    console.log('Looks like there was a problem. Status Code: ' + response.status);
-
-                    if(response.status === 400 || response.status === 500){
-                        alert("Nastal problém při zápisu do databáze, \n " +
-                            "\"Poruseni integrity dat - neunikatni nebo nulova povinna data\"\n" + `[${response.status}]`)
-
-                    } else {
-                        alert("Problém při zápisu")
-                    }
-
-                    return;
-                }
-
+                checkResponse(response.status)
+                if (response.status !== 200) return;
             }
         )
         .then(() => location.reload())
@@ -56,9 +45,9 @@ function editWorker(e) {
     getData("http://localhost:8080/worker/" + workerId, {})
         .then(
             function(response) {
+
                 if (response.status !== 200) {
-                    console.log('Looks like there was a problem. Status Code: ' +
-                        response.status);
+                    alert("problem při čtení databáze: [" + response.status + "]")
                     return;
                 }
 
@@ -87,7 +76,28 @@ function fillWorkerForm(data, workerId) {
     updateButton.setAttribute("data-worker_id", workerId)
     updateButton.addEventListener("click", updateWorker)
 
+    let deleteButton = form.querySelector("button#deleteWorker");
+    deleteButton.setAttribute("data-worker_id", workerId)
+    deleteButton.addEventListener("click", deleteWorker)
+
     form.style.display = "block"
+}
+
+function deleteWorker(e){
+    let workerId = e.target.dataset.worker_id
+
+    deleteData("http://localhost:8080/worker/" + workerId)
+        .then(
+            function(response) {
+                checkResponse(response.status)
+                if (response.status !== 200) return;
+            }
+        )
+        .then(() => location.reload())
+        .catch((error) => {
+            console.log("ERROR: ")
+            console.log(error)
+        })
 }
 
 function updateWorker(e){
@@ -108,14 +118,8 @@ function updateWorker(e){
     putData("http://localhost:8080/worker/" + workerId, worker)
         .then(
             function(response) {
-                if (response.status !== 200) {
-                    console.log('Looks like there was a problem. Status Code: ' + response.status);
-
-                    alert("Nastal problém při zápisu do databáze, \n " +
-                        "Ujistěte se, že zadaný email neni jiz pouzivan.\n" + `[${response.status}]`)
-
-                    return;
-                }
+                checkResponse(response.status)
+                if (response.status !== 200) return;
             }
         )
         .then(() => location.reload())
@@ -123,4 +127,5 @@ function updateWorker(e){
             console.error('Error:', error);
         });
 }
+
 

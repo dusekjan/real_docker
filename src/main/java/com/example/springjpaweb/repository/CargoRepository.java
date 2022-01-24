@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface CargoRepository extends JpaRepository<Cargo, Long> {
 
-    @Query("SELECT c FROM Cargo c LEFT JOIN c.ship s WHERE s.id = :id")
+    @Query("SELECT c FROM Cargo c LEFT JOIN c.ship s WHERE s.id = :shipId")
     List<Cargo> findCargosByShipId(
-            @Param("id") Long id
+            @Param("shipId") long shipId
     );
 }

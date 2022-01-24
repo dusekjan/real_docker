@@ -2,6 +2,7 @@ package com.example.springjpaweb.service;
 
 import com.example.springjpaweb.entity.Worker;
 import com.example.springjpaweb.repository.WorkerRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +24,10 @@ public class WorkerService {
     public Optional<Worker> findById(long id){
         Optional<Worker> worker = repository.findById(id);
         return worker;
+    }
+
+    public void delete(long id){
+        repository.deleteById(id);
     }
 
     public List<Worker> getAll() {

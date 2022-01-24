@@ -59,24 +59,24 @@
         <div class="oddelit">
             <label for="naklad">Druh nákladu</label>
             <select id="naklad">
-                <option value="1">FOOD</option>
-                <option value="2">ANIMALS</option>
-                <option value="3">FUELS</option>
-                <option value="4">VEHICLES</option>
-                <option value="5">MACHINERY</option>
-                <option value="6">DRYBULK</option>
-                <option value="7">LIQUIDBULK</option>
-                <option value="8">CHEMICAL</option>
-                <option value="9">OTHERS</option>
-                <option value="10">EMPTY</option>
+                <option value="FOOD">FOOD</option>
+                <option value="ANIMALS">ANIMALS</option>
+                <option value="FUELS">FUELS</option>
+                <option value="VEHICLES">VEHICLES</option>
+                <option value="MACHINERY">MACHINERY</option>
+                <option value="DRYBULK">DRYBULK</option>
+                <option value="LIQUIDBULK">LIQUIDBULK</option>
+                <option value="CHEMICAL">CHEMICAL</option>
+                <option value="OTHERS">OTHERS</option>
+                <option value="EMPTY">EMPTY</option>
             </select><br>
         </div>
         <div class="oddelit">
             <label for="stav">Stav lodi</label>
             <select id="stav">
-                <option value="1">Očekává se</option>
-                <option value="2">Aktuálně v přístavu</option>
-                <option value="3">Již odjela</option>
+                <option value="ARRIVING">Očekává se</option>
+                <option value="HARBER">Aktuálně v přístavu</option>
+                <option value="GONE">Již odplula</option>
             </select><br>
         </div>
         <div class="oddelit">
@@ -87,8 +87,8 @@
             <label for="casO">Čas odjezdu</label>
             <input type="text" id="casO"><br>
         </div>
-        <button type="submit" class="myButton3 uprostred">Uložit</button>
-        <button type="button" class="myButton2 uprostred">Smazat</button>
+        <button type="submit" class="myButton3 uprostred" id="updateSchedule">Uložit</button>
+        <button type="button" class="myButton2 uprostred" id="deleteSchedule">Smazat</button>
     </form>
 </div>
 
@@ -117,8 +117,7 @@
             <label for="poznPridat">Poznámka</label>
             <input type="text" id="poznPridat"><br>
         </div>
-        <button type="submit" class="myButton3 uprostred">Uložit</button>
-        <button type="button" class="myButton2 uprostred">Smazat</button>
+        <button type="submit" class="myButton3 uprostred" id="postCargo">Uložit</button>
     </form>
 </div>
 
@@ -147,8 +146,8 @@
             <label for="poznUpravit">Poznámka</label>
             <input type="text" id="poznUpravit"><br>
         </div>
-        <button type="submit" class="myButton3 uprostred">Uložit</button>
-        <button type="button" class="myButton2 uprostred">Smazat</button>
+        <button type="submit" class="myButton3 uprostred" id="updateCargo">Uložit</button>
+        <button type="button" class="myButton2 uprostred" id="deleteCargo">Smazat</button>
     </form>
 </div>
 
@@ -197,7 +196,9 @@
                 <td th:text="${schedule.arrivalTime}"></td>
                 <td th:text="${schedule.departureTime}"></td>
                 <td>
-                    <button class="myButton1 uprostred" onclick="openForm()" type="button">Upravit</button>
+                    <button class="myButton1 uprostred editShipButton" type="button"
+                            th:attr="data-schedule_id=${schedule.id},
+                                    data-ship_id=${schedule.ship.id}">Upravit</button>
                 </td>
                 <td>
                     <button class="myButton1 uprostred loadLoadButton" type="button"
@@ -215,7 +216,7 @@
 
 
     <div>
-        <button type="button" class="myButton1 uprostred" onclick="openForm3()">Přidat nový náklad</button>
+        <button type="button" class="myButton1 uprostred" id="addNewCargo" onclick="openForm3()" style="display: none;">Přidat nový náklad</button>
     </div>
 
     <!-- přidání nové lodě -->
@@ -227,48 +228,48 @@
             <img src="/img/obr3.jpg" class="obrazek4" alt="Obrázek lodí">
         </div>
 
-        <div class="novyVlevo">
+        <div class="novyVlevo" id="newShipAndScheduleForm">
             <div class="oddelit">
                 <label>Název lodě:</label>
-                <input class="vpravo" type="text" placeholder="Název lodě"><br>
+                <input class="vpravo" type="text" placeholder="Název lodě" id="shipName"><br>
             </div>
             <div class="oddelit">
                 <label>Název společnosti:</label>
-                <input class="vpravo" type="text" placeholder="Název společnosti"><br>
+                <input class="vpravo" type="text" placeholder="Název společnosti" id="shipCompany"><br>
             </div>
             <div class="oddelit">
                 <label>Druh nákladu:</label>
-                <select class="vpravo">
-                    <option value="1">FOOD</option>
-                    <option value="2">ANIMALS</option>
-                    <option value="3">FUELS</option>
-                    <option value="4">VEHICLES</option>
-                    <option value="5">MACHINERY</option>
-                    <option value="6">DRYBULK</option>
-                    <option value="7">LIQUIDBULK</option>
-                    <option value="8">CHEMICAL</option>
-                    <option value="9">OTHERS</option>
-                    <option value="10">EMPTY</option>
+                <select class="vpravo" id="shipCargoType">
+                    <option value="FOOD">FOOD</option>
+                    <option value="ANIMALS">ANIMALS</option>
+                    <option value="FUELS">FUELS</option>
+                    <option value="VEHICLES">VEHICLES</option>
+                    <option value="MACHINERY">MACHINERY</option>
+                    <option value="DRYBULK">DRYBULK</option>
+                    <option value="LIQUIDBULK">LIQUIDBULK</option>
+                    <option value="CHEMICAL">CHEMICAL</option>
+                    <option value="OTHERS">OTHERS</option>
+                    <option value="EMPTY">EMPTY</option>
                 </select><br>
             </div>
             <div class="oddelit">
                 <label>Stav lodi:</label>
-                <select class="vpravo">
-                    <option value="1">Očekává se</option>
-                    <option value="2">Aktuálně v přístavu</option>
-                    <option value="3">Již odjela</option>
+                <select class="vpravo" id="scheduleState">
+                    <option value="ARRIVING">Očekává se</option>
+                    <option value="HARBER">Aktuálně v přístavu</option>
+                    <option value="GONE">Již odjela</option>
                 </select><br>
             </div>
             <div class="oddelit">
                 <label>Čas příjezdu:</label>
-                <input class="vpravo" type="text" placeholder="dd.mm.yyyy hh:mm"><br>
+                <input class="vpravo" type="text" placeholder="dd.mm.yyyy hh:mm" id="scheduleArrivalTime"><br>
             </div>
             <div class="oddelit">
                 <label>Čas odjezdu:</label>
-                <input class="vpravo" type="text" placeholder="dd.mm.yyyy hh:mm"><br>
+                <input class="vpravo" type="text" placeholder="dd.mm.yyyy hh:mm" id="scheduleDepartureTime"><br>
             </div>
             <div class="oddelit">
-                <input class="myButton1 uprostred" type="submit" value="Přidat">
+                <input class="myButton1 uprostred" type="submit" value="Přidat" id="addNewShipAndSchedule">
             </div>
         </div>
     </div>

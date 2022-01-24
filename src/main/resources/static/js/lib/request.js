@@ -37,3 +37,31 @@ export async function postData(url = '', data = {}) {
     });
     return response; // dont forget to PARSE IT TO JSON with .json()
 }
+
+export async function deleteData(url = '') {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    });
+    return response; // dont forget to PARSE IT TO JSON with .json()
+}
+
+export function checkResponse(responseStatus, msg) {
+    let additionaltext = msg ? msg : ""
+
+    if (responseStatus === 200){
+        alert("Zápis do databáze proběhl v pořádku")
+    }
+    else if(responseStatus === 400 || responseStatus === 500){
+        alert("Nastal problém při zápisu do databáze, \n " +
+            "\"Poruseni integrity dat - neunikatni nebo nulova povinna data\"\n" + `[${responseStatus}] 
+            \n ${additionaltext}`)
+
+    } else {
+        alert("Problém při zápisu \n " + additionaltext)
+    }
+}
