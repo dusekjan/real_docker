@@ -1,8 +1,6 @@
 package com.example.springjpaweb.web;
 
-import com.example.springjpaweb.entity.Cargo;
 import com.example.springjpaweb.entity.Schedule;
-import com.example.springjpaweb.entity.Ship;
 import com.example.springjpaweb.entity.Worker;
 import com.example.springjpaweb.service.CargoService;
 import com.example.springjpaweb.service.ScheduleService;
@@ -60,18 +58,12 @@ public class GeneralController {
 
         model.addAttribute("shipData", completeSchedule);
 
-        for (Schedule schedule : completeSchedule){
-            System.out.println(schedule);
-        }
-
         return "editace";
     }
-
 
     @GetMapping("/editace-zamestnancu")
     public String getEditEmployeePage(Model model) {
         List<Worker> workerList = workerService.getAll();
-        System.out.println(workerList);
 
         model.addAttribute("workers", workerList);
 
@@ -107,11 +99,5 @@ public class GeneralController {
         e.printStackTrace();
         return new ResponseEntity<ErrorResponse>(new ErrorResponse("Nenalezen"), HttpStatus.NOT_FOUND);
     }
-
-//    @GetMapping("/")
-//    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-//        model.addAttribute("name", name);
-//        return "greeting";
-//    }
 
 }

@@ -3,13 +3,11 @@ package com.example.springjpaweb.web;
 import com.example.springjpaweb.entity.Cargo;
 import com.example.springjpaweb.entity.Schedule;
 import com.example.springjpaweb.entity.Ship;
-import com.example.springjpaweb.entity.Worker;
 import com.example.springjpaweb.enums.CargoType;
 import com.example.springjpaweb.enums.StateOfShip;
 import com.example.springjpaweb.service.CargoService;
 import com.example.springjpaweb.service.ScheduleService;
 import com.example.springjpaweb.service.ShipService;
-import com.example.springjpaweb.service.WorkerService;
 import com.example.springjpaweb.web.errors.ErrorResponse;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -36,26 +34,29 @@ public class ScheduleShipController {
         this.cargoService = cargoService;
     }
 
+
     @GetMapping("/schedule/{id}")
     public Optional<Schedule> getSchedule(@PathVariable long id){
         return scheduleService.findById(id);
     }
 
+
     @PostMapping("/scheduleAndShip")
-    public void createStudent(@RequestBody Map<String, String> data) {
+    public void createScheduleWithShip(@RequestBody Map<String, String> data) {
         CargoType cargoType = CargoType.valueOf(data.get("cargoType"));
         Ship ship = new Ship(data.get("name"), data.get("company"), cargoType);
 
         StateOfShip state = StateOfShip.valueOf(data.get("state"));
-        Schedule schedule = new Schedule(data.get("arrivalTime"),
+        Schedule schedule = new Schedule(
+                data.get("arrivalTime"),
                 data.get("departureTime"),
                 state,
                 ship);
 
-
-        System.out.println(shipService.save(ship));
-        System.out.println(scheduleService.save(schedule));
+        shipService.save(ship);
+        scheduleService.save(schedule);
     }
+
 
     @PutMapping("/ship/{id}")
     public Ship updateShip(@PathVariable long id, @RequestBody Ship shipData){
@@ -74,6 +75,7 @@ public class ScheduleShipController {
             return new Ship();
         }
     }
+
 
     @PutMapping("/schedule/{id}")
     public Schedule updateSchedule(@PathVariable long id, @RequestBody Schedule scheduleData){
@@ -96,7 +98,7 @@ public class ScheduleShipController {
 
     @Transactional
     @DeleteMapping("/scheduleAndShipWithCargos/{scheduleId}")
-    public void deleteStudent(@PathVariable long scheduleId){
+    public void deleteScheduleAndShip(@PathVariable long scheduleId){
 
         // find crucial data for start deletions
         long shipId = scheduleService.findById(scheduleId).get().getShip().getId();
@@ -109,8 +111,6 @@ public class ScheduleShipController {
         scheduleService.delete(scheduleId);
         shipService.delete(shipId);
     }
-
-
 
 
     @ExceptionHandler

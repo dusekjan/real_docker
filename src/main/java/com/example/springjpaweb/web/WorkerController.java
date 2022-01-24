@@ -7,6 +7,9 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +20,21 @@ import java.util.Optional;
 @Transactional
 public class WorkerController {
     private final WorkerService workerService;
+    private final UserDetailsService userDetailsService;
 
-    public WorkerController(WorkerService workerService) {
+    public WorkerController(WorkerService workerService, UserDetailsService userDetailsService) {
         this.workerService = workerService;
+        this.userDetailsService = userDetailsService;
     }
+
+//    @PostMapping("worker/login")
+//    public Worker workerLogin(){
+//
+//        User user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//
+//        return new Worker();
+//    }
 
     @GetMapping("/worker/{id}")
     public Optional<Worker> getWorker(@PathVariable long id){
