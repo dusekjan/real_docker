@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <!--HARMONOGRAM-->
 
@@ -33,7 +33,7 @@
     </nav>
     <nav class="vpravoNav">
         <div sec:authorize="isAuthenticated()">
-            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle nav1">ODHLÁSIT SE</a>
+            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle nav1" th:text="${'ODHLÁSIT UŽIVATELE: ' + #authentication.getPrincipal().getUsername()}"></a>
             <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
                 <input hidden type="submit" value="Sign Out" />
             </form>

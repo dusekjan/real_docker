@@ -1,6 +1,7 @@
 package com.example.springjpaweb;
 
 import com.example.springjpaweb.entity.Worker;
+import com.example.springjpaweb.enums.Role;
 import com.example.springjpaweb.repository.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -28,11 +29,34 @@ public class UserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException(email);
         }
 
-        UserDetails user = User
-                .withUsername(worker.getEmail())
-                .password(worker.getPassword())
-                .roles("WORKER", "BOSS", "ADMIN")
-                .build();
+        UserDetails user;
+
+        switch (worker.getRole()) {
+            case WORKER:
+                    user = User
+                        .withUsername(worker.getEmail())
+                        .password(worker.getPassword())
+                        .roles("WORKER")
+                        .build();
+                break;
+            case BOSS:
+                    user = User
+                            .withUsername(worker.getEmail())
+                            .password(worker.getPassword())
+                            .roles("WORKER", "BOSS")
+                            .build();
+                break;
+            case ADMIN:
+                    user = User
+                            .withUsername(worker.getEmail())
+                            .password(worker.getPassword())
+                            .roles("WORKER", "BOSS", "ADMIN")
+                            .build();
+                break;
+
+            default:
+                throw new IllegalStateException("Unexpected value: " + worker.getRole());
+        }
 
         return user;
     }
