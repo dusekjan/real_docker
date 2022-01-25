@@ -13,7 +13,7 @@ Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB.
   - Vyuziva ho pro Login, Logout a urceni prav uzivatele (Uzivatel je namapovan na entitu Worker)
   - Podle pridelenych roli se definuji naroky na provadeni requestu
 - Requesty na REST API od klienta zprostredkovava JavaScript metodou fetch()
-- Veskere zpracovavane pozadavky (Backend, Frontend) jsou pripraveni na odchytnuti pripadne chyby
+- Veskere zpracovavane pozadavky (Backend, Frontend) jsou pripraveny na odchytnuti pripadne chyby
 
 ### Frontend
 - Sablony a jejich styly jsou vytvoreny pomoci HTML/CSS
@@ -25,7 +25,7 @@ Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB.
   - Jinymi slovy je mozne si zobrazit obsah databaze pokud nebezi aplikace a naopak
   - Je mozne spustit aplikaci, provest zmeny a po vypnuti aplikace lze zobrazit aktualni stav databaze
 - Docker - `docker-compose build` vytvori image, ale `docker-compose up` nespusti aplikaci
-  - doporucuji spoustet apliakci ve vyvojovem prostredi
+  - doporucuji spoustet aplikaci ve vyvojovem prostredi
 
 
 
