@@ -189,32 +189,32 @@ public class DatabaseFiller {
         worker25.setRole(Role.ADMIN);
         worker26.setRole(Role.ADMIN);
 
-        workerService.save(worker1);
-        workerService.save(worker2);
-        workerService.save(worker3);
-        workerService.save(worker4);
-        workerService.save(worker5);
-        workerService.save(worker6);
-        workerService.save(worker7);
-        workerService.save(worker8);
-        workerService.save(worker9);
-        workerService.save(worker10);
-        workerService.save(worker11);
-        workerService.save(worker12);
-        workerService.save(worker13);
-        workerService.save(worker14);
-        workerService.save(worker15);
-        workerService.save(worker16);
-        workerService.save(worker17);
-        workerService.save(worker18);
-        workerService.save(worker19);
-        workerService.save(worker20);
-        workerService.save(worker21);
-        workerService.save(worker22);
-        workerService.save(worker23);
-        workerService.save(worker24);
-        workerService.save(worker25);
-        workerService.save(worker26);
+        workerService.update(worker1);
+        workerService.update(worker2);
+        workerService.update(worker3);
+        workerService.update(worker4);
+        workerService.update(worker5);
+        workerService.update(worker6);
+        workerService.update(worker7);
+        workerService.update(worker8);
+        workerService.update(worker9);
+        workerService.update(worker10);
+        workerService.update(worker11);
+        workerService.update(worker12);
+        workerService.update(worker13);
+        workerService.update(worker14);
+        workerService.update(worker15);
+        workerService.update(worker16);
+        workerService.update(worker17);
+        workerService.update(worker18);
+        workerService.update(worker19);
+        workerService.update(worker20);
+        workerService.update(worker21);
+        workerService.update(worker22);
+        workerService.update(worker23);
+        workerService.update(worker24);
+        workerService.update(worker25);
+        workerService.update(worker26);
     }
 
 }

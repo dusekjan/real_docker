@@ -10,7 +10,7 @@ Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB.
   - Databaze je naplnena zkusebnimy daty pri spusteni aplikace 
 - Dotazy zpracovavaji REST API Controllery
 - Aplikace pro zabezpeceni vyuziva WebSecurityConfigurerAdapter
-  - Vyuziva ho pro Login, Logout a urceni prav uzivatele 
+  - Vyuziva ho pro Login, Logout a urceni prav uzivatele (Uzivatel je namapovan na entitu Worker)
   - Podle pridelenych roli se definuji naroky na provadeni requestu
 - Requesty na REST API od klienta zprostredkovava JavaScript metodou fetch()
 - Veskere zpracovavane pozadavky (Backend, Frontend) jsou pripraveni na odchytnuti pripadne chyby
@@ -21,9 +21,6 @@ Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB.
 - Pro JavaScript se nevyuziva zadny framework 
 
 ### Poznamky
-- Nepodarilo se plne napojit databazovou entitu Worker na UserDetailsService proto jsou pro 
-zkusebni ucely umele vytvoreni 3 uzivatele s prislusnymi pravy v tride [SecurityConfig](https://github.com/dusekjan/real_docker/blob/master/src/main/java/com/example/springjpaweb/SecurityConfig.java)
-  - Je tak mozne testovat Login/Logout a autorizaci
 - Je mozne ve vyvojovem prostredi zobrazit stav databaze v Grafickem rozhrani - ovsem pokud nebezi aplikace
   - Jinymi slovy je mozne si zobrazit obsah databaze pokud nebezi aplikace a naopak
   - Je mozne spustit aplikaci, provest zmeny a po vypnuti aplikace lze zobrazit aktualni stav databaze

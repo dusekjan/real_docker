@@ -2,6 +2,7 @@ package com.example.springjpaweb.service;
 
 import com.example.springjpaweb.entity.Worker;
 import com.example.springjpaweb.repository.WorkerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,20 +15,17 @@ public class WorkerService {
 
     private final WorkerRepository repository;
 
-    public WorkerService(WorkerRepository repository) {
+    @Autowired
+    private final PasswordEncoder passwordEncoder;
+
+    public WorkerService(WorkerRepository repository, PasswordEncoder passwordEncoder) {
        this.repository = repository;
+       this.passwordEncoder = passwordEncoder;
     }
 
-//    private final PasswordEncoder passwordEncoder;
-//    public WorkerService(WorkerRepository repository, PasswordEncoder passwordEncoder) {
-//       this.repository = repository;
-//       this.passwordEncoder = passwordEncoder;
-//    }
-
-    /* Do databaze kvuli ladeni UserDetailService ukladam heslo v plain textu */
     public Worker save(Worker worker){
-        // encrypt password
-        // worker.setPassword(passwordEncoder.encode(worker.getPassword()));
+//        encrypt password
+         worker.setPassword(passwordEncoder.encode(worker.getPassword()));
 
         return repository.save(worker);
     }
@@ -36,7 +34,6 @@ public class WorkerService {
     public Worker findByEmail(String email){
         return repository.findWorkerByEmail(email);
     }
-
 
     public Worker update(Worker worker){
         return repository.save(worker);
