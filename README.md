@@ -13,7 +13,7 @@ Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB.
   - Vyuziva ho pro Login, Logout a urceni prav uzivatele 
   - Podle pridelenych roli se definuji naroky na provadeni requestu
 - Requesty na REST API od klienta zprostredkovava JavaScript metodou fetch()
-- Veskere zpracovavane pozadavky (Backend, Frontend) jsou pripraveni na odchytnuti pripadne chyby
+- Veskere zpracovavane pozadavky (Backend, Frontend) jsou pripraveny na odchytnuti pripadne chyby
 
 ### Frontend
 - Sablony a jejich styly jsou vytvoreny pomoci HTML/CSS
@@ -24,11 +24,12 @@ Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB.
 - Nepodarilo se plne napojit databazovou entitu Worker na UserDetailsService proto jsou pro 
 zkusebni ucely umele vytvoreni 3 uzivatele s prislusnymi pravy v tride [SecurityConfig](https://github.com/dusekjan/real_docker/blob/master/src/main/java/com/example/springjpaweb/SecurityConfig.java)
   - Je tak mozne testovat Login/Logout a autorizaci
+  - Nefunkcni kod je zakomentovan
 - Je mozne ve vyvojovem prostredi zobrazit stav databaze v Grafickem rozhrani - ovsem pokud nebezi aplikace
   - Jinymi slovy je mozne si zobrazit obsah databaze pokud nebezi aplikace a naopak
   - Je mozne spustit aplikaci, provest zmeny a po vypnuti aplikace lze zobrazit aktualni stav databaze
 - Docker - `docker-compose build` vytvori image, ale `docker-compose up` nespusti aplikaci
-  - doporucuji spoustet apliakci ve vyvojovem prostredi
+  - doporucuji spoustet aplikaci ve vyvojovem prostredi
 
 
 
