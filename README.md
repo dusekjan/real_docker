@@ -1,7 +1,7 @@
 # Přístavní aplikace - real_docker 
 Autoři: [Jan Dušek @dusekjan](https://github.com/dusekjan/) & [Karel Nosek @KarelNosek25](https://github.com/KarelNosek25)
 
-##Semestrální projekt předmětu PPRO - 2021/2022
+## Semestrální projekt předmětu PPRO - 2021/2022
 
 Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB.
 
