@@ -47,6 +47,7 @@ function editWorker(e) {
             function(response) {
 
                 if (response.status !== 200) {
+                    if (response.status === 403) { alert("Přístup byl odepřen: [" + response.status + "]"); return;}
                     alert("problem při čtení databáze: [" + response.status + "]")
                     return;
                 }

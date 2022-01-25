@@ -7,6 +7,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,32 +22,24 @@ import java.util.Optional;
 @Transactional
 public class WorkerController {
     private final WorkerService workerService;
-    private final UserDetailsService userDetailsService;
 
-    public WorkerController(WorkerService workerService, UserDetailsService userDetailsService) {
+    public WorkerController(WorkerService workerService) {
         this.workerService = workerService;
-        this.userDetailsService = userDetailsService;
     }
 
-//    @PostMapping("worker/login")
-//    public Worker workerLogin(){
-//
-//        User user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//
-//
-//        return new Worker();
-//    }
-
+    @PreAuthorize("hasRole('BOSS')")
     @GetMapping("/worker/{id}")
     public Optional<Worker> getWorker(@PathVariable long id){
         return workerService.findById(id);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/worker")
-    public Worker createStudent(@RequestBody Worker worker) {
+    public Worker createWorker(@RequestBody Worker worker) {
         return workerService.save(worker);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/worker/{id}")
     public Worker updateWorker(@PathVariable long id, @RequestBody Worker workerData){
         Optional<Worker> workerFromDb = workerService.findById(id);
@@ -59,16 +53,24 @@ public class WorkerController {
             worker.setPhone(workerData.getPhone());
             worker.setRole(workerData.getRole());
 
-            return workerService.save(worker);
+            return workerService.update(worker);
 
         } else {
             return new Worker();
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/worker/{id}")
-    public void deleteStudent(@PathVariable long id){
+    public void deleteWorker(@PathVariable long id){
         workerService.delete(id);
+    }
+
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleAccesDeniedException(AccessDeniedException e) {
+        e.printStackTrace();
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse("Přístup odepřen"), HttpStatus.FORBIDDEN);
     }
 
     @ExceptionHandler

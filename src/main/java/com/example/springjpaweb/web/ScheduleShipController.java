@@ -13,6 +13,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,13 +36,13 @@ public class ScheduleShipController {
         this.cargoService = cargoService;
     }
 
-
+    @PreAuthorize("hasRole('BOSS')")
     @GetMapping("/schedule/{id}")
     public Optional<Schedule> getSchedule(@PathVariable long id){
         return scheduleService.findById(id);
     }
 
-
+    @PreAuthorize("hasRole('BOSS')")
     @PostMapping("/scheduleAndShip")
     public void createScheduleWithShip(@RequestBody Map<String, String> data) {
         CargoType cargoType = CargoType.valueOf(data.get("cargoType"));
@@ -57,7 +59,7 @@ public class ScheduleShipController {
         scheduleService.save(schedule);
     }
 
-
+    @PreAuthorize("hasRole('BOSS')")
     @PutMapping("/ship/{id}")
     public Ship updateShip(@PathVariable long id, @RequestBody Ship shipData){
         Optional<Ship> shipFromDb = shipService.findById(id);
@@ -76,7 +78,7 @@ public class ScheduleShipController {
         }
     }
 
-
+    @PreAuthorize("hasRole('BOSS')")
     @PutMapping("/schedule/{id}")
     public Schedule updateSchedule(@PathVariable long id, @RequestBody Schedule scheduleData){
         Optional<Schedule> scheduleFromDb = scheduleService.findById(id);
@@ -95,7 +97,7 @@ public class ScheduleShipController {
         }
     }
 
-
+    @PreAuthorize("hasRole('BOSS')")
     @Transactional
     @DeleteMapping("/scheduleAndShipWithCargos/{scheduleId}")
     public void deleteScheduleAndShip(@PathVariable long scheduleId){
@@ -112,6 +114,12 @@ public class ScheduleShipController {
         shipService.delete(shipId);
     }
 
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleAccesDeniedException(AccessDeniedException e) {
+        e.printStackTrace();
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse("Přístup odepřen"), HttpStatus.FORBIDDEN);
+    }
 
     @ExceptionHandler
     public ResponseEntity<ErrorResponse> handleTransactionSystemException(TransactionSystemException e) {

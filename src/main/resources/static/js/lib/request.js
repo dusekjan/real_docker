@@ -56,6 +56,10 @@ export function checkResponse(responseStatus, msg) {
     if (responseStatus === 200){
         alert("Zápis do databáze proběhl v pořádku")
     }
+    else if (responseStatus === 403){
+        alert("Přístup byl odepřen [" + responseStatus + "]\n" + additionaltext)
+    }
+
     else if(responseStatus === 400 || responseStatus === 500){
         alert("Nastal problém při zápisu do databáze, \n " +
             "\"Poruseni integrity dat - neunikatni nebo nulova povinna data\"\n" + `[${responseStatus}] 

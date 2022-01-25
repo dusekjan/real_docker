@@ -54,6 +54,10 @@
             <scope>runtime</scope>
             <version>2.6.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 <!--        <dependency>-->
 <!--            <groupId>mysql</groupId>-->

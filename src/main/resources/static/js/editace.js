@@ -25,6 +25,7 @@ function getSchedule(e){
         .then(
             function(response) {
                 if (response.status !== 200) {
+                    if (response.status === 403) { alert("Přístup byl odepřen: [" + response.status + "]"); return;}
                     alert("problem při čtení databáze: [" + response.status + "]")
                     return;
                 }
@@ -135,6 +136,7 @@ function deleteScheduleAndBoatWithCargos(e){
         .then(
             function(response) {
                 if (response.status !== 200) {
+                    if (response.status === 403) { alert("Přístup byl odepřen: [" + response.status + "]"); return;}
                     alert("problem při čtení databáze: [" + response.status + "]")
                     return;
                 }
@@ -215,6 +217,7 @@ function getCargo(e){
         .then(
             function(response) {
                 if (response.status !== 200) {
+                    if (response.status === 403) { alert("Přístup byl odepřen: [" + response.status + "]"); return;}
                     alert("problem při čtení databáze: [" + response.status + "]")
                     return;
                 }

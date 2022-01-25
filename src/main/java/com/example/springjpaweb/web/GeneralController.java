@@ -10,6 +10,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.TransactionSystemException;
 import org.springframework.ui.Model;
@@ -37,6 +39,7 @@ public class GeneralController {
     public String getHomePage(){
         return "uvod";
     }
+
 
     @GetMapping("/rozcestnik")
     public String getSignPostPage() {
@@ -75,6 +78,12 @@ public class GeneralController {
         return "error";
     }
 
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> handleAccesDeniedException(AccessDeniedException e) {
+        e.printStackTrace();
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse("Přístup odepřen"), HttpStatus.FORBIDDEN);
+    }
 
     @ExceptionHandler
     public ResponseEntity<ErrorResponse> handleTransactionSystemException(TransactionSystemException e) {

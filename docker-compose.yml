@@ -5,9 +5,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - JDBC_CONNECTION=jdbc:mysql://db:3306/test
-      - JDBC_USERNAME=root
-      - JDBC_PASSWORD=abc
+      - JDBC_CONNECTION=jdbc:hsqldb:file:testdb
+      - JDBC_USERNAME=sa
+      - JDBC_PASSWORD=
   db:
     image: "mysql:8"
     environment:
