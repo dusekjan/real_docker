@@ -20,7 +20,7 @@ Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB.
   - Thymeleaf 
 - Pro JavaScript se nevyuziva zadny framework 
 
-###Poznamky
+### Poznamky
 - Nepodarilo se plne napojit databazovou entitu Worker na UserDetailsService proto jsou pro 
 zkusebni ucely umele vytvoreni 3 uzivatele s prislusnymi pravy v tride [SecurityConfig](https://github.com/dusekjan/real_docker/blob/master/src/main/java/com/example/springjpaweb/SecurityConfig.java)
   - Je tak mozne testovat Login/Logout a autorizaci
