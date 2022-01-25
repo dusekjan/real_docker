@@ -25,23 +25,6 @@
     <img src="/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
-<!-- vyskakovací okno-->
-<div class="popup" id="myForm2">
-    <form class="container">
-        <h2>Přihlášení uživatele</h2>
-        <div class="oddelit2">
-            <label for="emailPrihlaseni">Email</label>
-            <input type="text" id="emailPrihlaseni" name="emailPrihlaseni" placeholder="Váš email..." required><br>
-        </div>
-        <div class="oddelit2">
-            <label for="psw">Heslo</label>
-            <input type="password" id="psw" name="psw" placeholder="Vaše heslo..." required><br>
-        </div>
-        <button type="submit" class="myButton3 uprostred">Přihlásit se</button><br>
-        <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
-    </form>
-</div>
-
 <!-- navigace -->
 <nav class="navigace obecne">
     <nav class="vlevoNav">
@@ -50,7 +33,7 @@
     </nav>
     <nav class="vpravoNav">
         <div sec:authorize="isAuthenticated()">
-            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle">ODHLÁSIT SE</a>
+            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle nav1">ODHLÁSIT SE</a>
             <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
                 <input hidden type="submit" value="Sign Out" />
             </form>
@@ -59,9 +42,9 @@
 </nav>
 
 <!-- článek: rozcestí -->
-<article class="clanek obecne">
+<article class="clanek2 obecne">
     <h2>Kam dál?</h2>
-    <div class="odstavec">
+    <div class="odstavec3">
         <a class="o1" href='/harmonogram'>
 
             <!--obrázek-->

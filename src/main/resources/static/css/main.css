@@ -89,12 +89,30 @@ p {
     border: 2px solid black;
 }
 
+.clanek2 {
+    background-color: white;
+    border: 2px solid black;
+    padding-bottom: 50px;
+}
+
+.clanek3 {
+    background-color: white;
+    padding-bottom: 100px;
+    border: 2px solid black;
+}
+
 .odstavec {
     margin: 10px;
 }
 
 .odstavec2 {
     margin: 10px;
+    height: auto;
+}
+
+.odstavec3 {
+    display: flex;
+    justify-content: center;
     height: auto;
 }
 
@@ -194,7 +212,7 @@ a:hover {
 
 a.o1:active,
 a.o1:hover {
-    width: 35%;
+    width: 25%;
     height: 200px;
     display: inline-block;
 }
@@ -263,9 +281,9 @@ h3 {
 }
 
 .obrazek4 {
-    width: 80%;
+    width: 75%;
     height: auto;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 /* STYLOVÁNÍ PRO VYSKAKOVACÍ OKNA */

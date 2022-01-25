@@ -25,23 +25,6 @@
     <img src="/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
-<!-- vyskakovací okno-->
-<div class="popup" id="myForm2">
-    <form class="container">
-        <h2>Přihlášení uživatele</h2>
-        <div class="oddelit2">
-            <label for="emailPrihlaseni">Email</label>
-            <input type="text" id="emailPrihlaseni" name="emailPrihlaseni" placeholder="Váš email..." required><br>
-        </div>
-        <div class="oddelit2">
-            <label for="psw">Heslo</label>
-            <input type="password" id="psw" name="psw" placeholder="Vaše heslo..." required><br>
-        </div>
-        <button type="submit" class="myButton3 uprostred">Přihlásit se</button><br>
-        <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
-    </form>
-</div>
-
 <!-- navigace -->
 <nav class="navigace obecne">
     <nav class="vlevoNav">
@@ -50,7 +33,7 @@
     </nav>
     <nav class="vpravoNav">
         <div sec:authorize="isAuthenticated()">
-            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle">ODHLÁSIT SE</a>
+            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle nav1">ODHLÁSIT SE</a>
             <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
                 <input hidden type="submit" value="Sign Out" />
             </form>
@@ -159,12 +142,8 @@
             Poslední stránka, kterou si můžete zobrazit je editace lodí. Zde se nacházejí všechny lodě v jedné tabulce.
             Po kliknutí na tlačítko detail můžete tyto lodě upravit (jejich údaje). Opět ale pouze tehdy,
             pokud na to máte oprávnění. Údaje pro přihlášení na naše stránky Vám sdělíme pokud budete na
-            pracovním pohovoru úspěšně přijat. Pro přihlášení klikněte na tlačítko níže, případně na tlačítko
-            nacházející se nahoře na obrazovce.
+            pracovním pohovoru úspěšně přijat.
         </p>
-
-        <!-- tlačítko pro přihlášení -->
-        <button class="myButton3 odsadit" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
 
     </div>
 </article>

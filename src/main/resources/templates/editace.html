@@ -25,24 +25,6 @@
     <img src="/img/logo.png" class="logo" alt="Přístav Dušek & Nosek">
 </header>
 
-<!-- vyskakovací okno pro přihlášení uživatele-->
-<div class="popup" id="myForm2">
-    <form class="container">
-        <h2>Přihlášení uživatele</h2>
-        <div class="oddelit2">
-            <label for="emailPrihlaseni">Email</label>
-            <input type="text" id="emailPrihlaseni" name="emailPrihlaseni" placeholder="Váš email..." required><br>
-        </div>
-        <div class="oddelit2">
-            <label for="psw">Heslo</label>
-            <input type="password" id="psw" name="psw" placeholder="Vaše heslo..." required><br>
-        </div>
-        <button type="submit" class="myButton3 uprostred">Přihlásit se</button>
-        <br>
-        <button type="button" class="myButton2 uprostred" onclick="closeForm2()">Zavřít</button>
-    </form>
-</div>
-
 <!-- Vyskakovací okno pro zobrazení detailu lodě a její úpravy -->
 <div class="popup" id="myForm">
     <form class="container">
@@ -159,7 +141,7 @@
     </nav>
     <nav class="vpravoNav">
         <div sec:authorize="isAuthenticated()">
-            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle">ODHLÁSIT SE</a>
+            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle nav1">ODHLÁSIT SE</a>
             <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
                 <input hidden type="submit" value="Sign Out" />
             </form>
@@ -168,7 +150,7 @@
 </nav>
 
 <!-- článek: editace lodí -->
-<article class="clanek obecne">
+<article class="clanek3 obecne">
     <h2 class="uprostredN">Editace lodí</h2>
     <div class="odstavec2">
         <h3 class="velke">Seznam všech lodí a jejich nákladů</h3>
