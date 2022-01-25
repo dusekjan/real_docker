@@ -60,6 +60,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .clearAuthentication(true);
     }
 
+    /* bohuzel se mi nepodarilo provest namapovani na uzivatele v databazi (Entita Worker)
+    *  tak nechavam svuj postup zakomentovany a pro zkouseni aplikace je mozne pouzit preddefinovane
+    *  uzivatele
+    * */
 
     @Bean
     @Override

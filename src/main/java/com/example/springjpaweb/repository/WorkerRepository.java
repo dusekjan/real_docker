@@ -8,6 +8,5 @@ import java.util.List;
 
 public interface WorkerRepository extends JpaRepository<Worker, Long> {
 
-
     Worker findWorkerByEmail(String email);
 }

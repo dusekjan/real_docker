@@ -26,7 +26,6 @@ public class ShipService {
         return repository.save(ship);
     }
 
-    //  @PreAuthorize(("hasRole('SUPERADMIN')")) //ma smysl tohle psat na Beanach a ne na nejaky tride - Method security
     public void delete(long id){
         repository.deleteById(id);
     }
@@ -35,18 +34,5 @@ public class ShipService {
         return repository.findAll();
     }
 
-    public List<Ship> getAllLinda() {
-        return repository.findAllLindaShipsFromCompany(Sort.by("name"));
-    }
-
-    public List<Ship> findMultipleShipsCompanyName(String company, String name){
-        return repository.findShipsByCompanyAndName(company, name);
-    }
-
-        //works
-    // toto nesmi vyhodit vice vysledku jinak chyba, takze mozna spise resit pres List<Ship> kde len() = 1
-//    public Ship findSingleShipCompanyName(String company, String name){
-//        return repository.findShipByCompanyAndName(company, name);
-//    }
 
 }

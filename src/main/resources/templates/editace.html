@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <!--EDITACE LODÍ-->
 
@@ -158,8 +158,12 @@
         <a class="nav2" href='/rozcestnik'> ROZCESTNÍK </a>
     </nav>
     <nav class="vpravoNav">
-        <button class="myButton3 nav1" onclick="openForm2()" type="button">PŘIHLÁSIT SE</button>
-        <button class="myButton2 nav2" type="button">ODHLÁSIT SE</button>
+        <div sec:authorize="isAuthenticated()">
+            <a href="javascript: document.logoutForm.submit()" class="dropdown-toggle">ODHLÁSIT SE</a>
+            <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                <input hidden type="submit" value="Sign Out" />
+            </form>
+        </div>
     </nav>
 </nav>
 
