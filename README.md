@@ -3,7 +3,7 @@ Autoři: [Jan Dušek @dusekjan](https://github.com/dusekjan/) & [Karel Nosek @Ka
 
 ## Semestrální projekt předmětu PPRO - 2021/2022
 
-Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB.
+Projekt je Spring-boot aplikace s pristupem do lokalni databaze HSQLDB
 
 ### Backend
 - K databazi se pristupuje pomoci JpaRepository
